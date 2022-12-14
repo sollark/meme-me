@@ -1,6 +1,10 @@
 'use strict';
 
-function onInit() {}
+function onInit() {
+  console.log('inInit');
+  // loadCustomFonts();
+  //load fonts
+}
 
 function onStartEdit(image) {
   const elGallery = document.querySelector('.gallery');

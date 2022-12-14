@@ -2,10 +2,10 @@
 
 const gCtxSettings = {
   lineWidth: 2,
-  strokeStyle: 'brown',
-  fillStyle: 'black',
+  strokeStyle: 'black',
+  fillStyle: 'white',
   fontSize: '40',
-  fontFamily: 'impact',
+  fontFamily: 'Impact',
   textAlign: 'center',
   textBaseLine: 'middle',
 };

@@ -7,7 +7,7 @@ let gCtx;
 
 _initEditor();
 
-function _initEditor() {
+async function _initEditor() {
   const elContainer = document.querySelector('.image-container');
   gElCanvas = document.querySelector('.canvas');
   gCtx = gElCanvas.getContext('2d');
@@ -17,6 +17,8 @@ function _initEditor() {
   window.addEventListener('resize', () => {
     resizeCanvas();
   });
+
+  await loadCustomFonts();
 
   drawImage();
 }
@@ -44,6 +46,7 @@ function drawImage() {
 
 function drawText(text) {
   applyCtxSettings();
+
   gCtx.fillText(text, 200, 100);
   gCtx.strokeText(text, 200, 100);
 }
