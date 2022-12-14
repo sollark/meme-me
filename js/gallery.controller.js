@@ -20,41 +20,41 @@ function renderImageGallery() {
   elContainer.innerHTML = strHtmls.join('');
 }
 
-var bCheckEnabled = true;
-var bFinishCheck = false;
+let isCheckEnabled = true;
+let isFinishCheck = false;
 
-var img;
-var i = 1;
+let img;
+let i = 1;
 
 function _loadImages() {
   gInterval = setInterval(loadImage, 1);
 }
 
 function loadImage() {
-  if (bFinishCheck) {
+  if (isFinishCheck) {
     clearInterval(gInterval);
     // alert('Loaded ' + i + ' image(s)!)');
     return;
   }
 
-  if (bCheckEnabled) {
-    bCheckEnabled = false;
+  if (isCheckEnabled) {
+    isCheckEnabled = false;
 
     img = new Image();
-    img.onload = fExists;
-    img.onerror = fDoesntExist;
+    img.onload = addImage;
+    img.onerror = stopLoad;
     img.src = `assets/images/${i}.jpg`;
   }
 }
 
-function fExists() {
+function addImage() {
   gImages.push(img);
   i++;
-  bCheckEnabled = true;
+  isCheckEnabled = true;
   // console.log('gImages:', gImages);
 }
 
-function fDoesntExist() {
-  bFinishCheck = true;
+function stopLoad() {
+  isFinishCheck = true;
   renderImageGallery();
 }
