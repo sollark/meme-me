@@ -11,10 +11,11 @@ function renderImageGallery() {
   const elContainer = document.querySelector('.images-container');
   const images = gImages;
 
-  console.log('images:', images);
-  console.log('elContainer:', elContainer);
+  // console.log('images:', images);
+  // console.log('elContainer:', elContainer);
   const strHtmls = images.map((img) => {
-    return `<div class="image-wrapper"> <img src='${img.src}' alt='' srcset=''></img></div>\n`;
+    // console.log('img:', img);
+    return `<div class="image-wrapper"><img src='${img.src}' alt='Image' onclick="onStartEdit('${img.src}')"></img></div>\n`;
   });
 
   elContainer.innerHTML = strHtmls.join('');

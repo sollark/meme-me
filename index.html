@@ -20,7 +20,7 @@
     <!-- main  -->
     <main class="main-layout">
       <!-- image gallery  -->
-      <div class="gallery">
+      <div class="gallery hidden">
         <header class="gallery__header flex">
           <input type="search" class="input" placeholder="Search" />
           <div class="keyword-container">keywords</div>
@@ -32,14 +32,50 @@
       </div>
 
       <!-- editor  -->
-      <div class="editor hidden">
-        <section class="image-container">image container</section>
-        <section class="editor-container">editor container</section>
+      <div class="editor flex">
+        <section class="image-container">
+          <canvas class="canvas" height="600" width="600"></canvas>
+        </section>
+        <section class="editor-container">
+          <input
+            class="input input-line"
+            type="text"
+            placeholder="Text Line"
+            oninput="onLineChange()" />
+
+          <div class="tools line-tools">
+            <button>move up</button>
+            <button>move down</button>
+            <button>switch line</button>
+            <button>add text line</button>
+            <button>add delete line</button>
+          </div>
+          <div class="tools text-tools">
+            <button>font up</button>
+            <button>font down</button>
+            <button>align left</button>
+            <button>align right</button>
+            <button>align center</button>
+            <select name="font">
+              <option value="impact">IMPACT</option>
+            </select>
+            <input type="color" />
+            <input type="color" />
+          </div>
+          <div class="tools sticker-tools">stickers</div>
+          <div class="tools image-tools">
+            <button>share</button>
+            <button>download</button>
+          </div>
+        </section>
       </div>
     </main>
 
     <footer class="main-layout"></footer>
+    <script src="js/sevices/meme.service.js"></script>
     <script src="js/gallery.controller.js"></script>
+    <script src="js/settings.controller.js"></script>
+    <script src="js/editor.controller.js"></script>
     <script src="js/main.controller.js"></script>
   </body>
 </html>

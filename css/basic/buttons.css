@@ -9,12 +9,17 @@
     padding: 1em 2em;
 
     text-align: center;
-    font-size: clamp(.8rem, 0.67vw + 0.60rem, 1.1rem);
+    font-size: 1rem;
     font-weight: 600;
 }
 
-button {
+button,
+input {
     padding: .3em .5em;
+
+    border-color: hsl(0, 0%, 72%);
+    border-style: solid;
+    border-width: 2px;
 }
 
 /* button:hover{} */

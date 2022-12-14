@@ -2,6 +2,10 @@
     /* padding: 1em; */
 }
 
+.gallery img {
+    cursor: pointer;
+}
+
 .gallery__header {
     padding: 1em;
 }
