@@ -1,0 +1,14 @@
+/* MEDIA QUERIES*/
+
+/* mobile only  */
+@media (max-width: 600px) {}
+
+/* small  */
+@media (min-width: 600px) {}
+
+/* medium  */
+@media (min-width: 960px) {}
+
+
+/* large  */
+@media (min-width: 1200px) {}

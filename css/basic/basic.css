@@ -1,0 +1,53 @@
+/* ======= BORDER BOX ======= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* ======== LINKS, LIST ====== */
+a,
+a:visited,
+a:hover,
+a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ========== POINTER ======== */
+label,
+button,
+.btn {
+    cursor: pointer;
+}
+
+
+/* ========== IMAGES ========= */
+img {
+    display: inline-block;
+    width: 100%;
+
+    object-fit: contain;
+    object-position: center;
+}
+
+
+/* ========== BUTTONS INPUT========= */
+button,
+.btn,
+input {
+    border: none;
+    background-color: transparent;
+    font: inherit;
+    color: inherit;
+}
+
+
+/* =============   HTML BODY  ============ */
+html {
+    scroll-behavior: smooth;
+}

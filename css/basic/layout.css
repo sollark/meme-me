@@ -1,0 +1,44 @@
+/*============== BODY ==============*/
+
+body {
+    height: 100vh;
+    color: blue;
+}
+
+/*============== LAYOUT ==============*/
+.main-layout>*:not(.full) {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.main-layout {
+    padding: 0 var(--main-padding);
+}
+
+
+/* ========= CARDS CONTAINER========= */
+.card-layout {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+/*============== SCREEN ============== */
+/* screen when menu opened  <div class="main-screen" onclick="toggleMenu()"></div> */
+.main-screen {
+    position: fixed;
+    inset: var(--h-header) 0 0 0;
+    background-color: #000;
+    background-color: rgb(0 0 0 / 70%);
+
+    cursor: pointer;
+    pointer-events: none;
+
+    opacity: 0;
+    transition: opacity .6s;
+}
+
+body.menu-open .main-screen {
+    pointer-events: auto;
+    opacity: 1;
+}

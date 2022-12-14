@@ -1,0 +1,20 @@
+/* button collection  */
+.btn--style1,
+.btn--style2,
+.btn--style3 {
+    border-width: 0.2em;
+    border-style: solid;
+    border-radius: 2em;
+
+    padding: 1em 2em;
+
+    text-align: center;
+    font-size: clamp(.8rem, 0.67vw + 0.60rem, 1.1rem);
+    font-weight: 600;
+}
+
+button {
+    padding: .3em .5em;
+}
+
+/* button:hover{} */

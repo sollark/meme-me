@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Meme Me</title>
+  </head>
+  <body class="flex flex-column" onload="onInit()">
+    <!-- main header  -->
+    <header class="main-layout main-header flex space-between">
+      <div class="logo">Logo</div>
+
+      <nav>
+        <button>Gallery</button><button>Memes</button><button>About</button>
+      </nav>
+    </header>
+
+    <!-- main  -->
+    <main class="main-layout">
+      <!-- image gallery  -->
+      <div class="gallery">
+        <header class="gallery__header flex">
+          <input type="search" class="input" placeholder="Search" />
+          <div class="keyword-container">keywords</div>
+        </header>
+
+        <main class="gallery__container">
+          <div class="images-container flex"></div>
+        </main>
+      </div>
+
+      <!-- editor  -->
+      <div class="editor hidden">
+        <section class="image-container">image container</section>
+        <section class="editor-container">editor container</section>
+      </div>
+    </main>
+
+    <footer class="main-layout"></footer>
+    <script src="js/gallery.controller.js"></script>
+    <script src="js/main.controller.js"></script>
+  </body>
+</html>

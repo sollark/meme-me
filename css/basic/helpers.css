@@ -1,0 +1,69 @@
+/* ========= FLEX ======== */
+.flex {
+    display: flex;
+}
+
+.flex.align-center {
+    align-items: center;
+}
+
+.flex.space-between {
+    justify-content: space-between
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+
+/*=========== LIST ===========*/
+.clean-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+/* ========= HIDDEN ======== */
+.hidden {
+    display: none;
+}
+
+/* mobile only  */
+@media (max-width: 600px) {
+    .hide-on-small-screen {
+        display: none;
+    }
+
+    .hide-on-big-screen {
+        display: initial;
+    }
+}
+
+/* small  */
+@media (min-width: 600px) {
+    .hide-on-small-screen {
+        display: initial;
+    }
+
+    .hide-on-big-screen {
+        display: none;
+    }
+}
+
+/* medium  */
+@media (min-width: 960px) {}
+
+
+/* large  */
+@media (min-width: 1200px) {}
+
+
+
+/* ========== OTHER ===========  */
+/* center icons in buttons  */
+.place-items-center {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
