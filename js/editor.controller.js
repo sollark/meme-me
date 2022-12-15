@@ -12,15 +12,14 @@ async function _initEditor() {
   gElCanvas = document.querySelector('.canvas');
   gCtx = gElCanvas.getContext('2d');
 
-  resizeCanvas();
-
   window.addEventListener('resize', () => {
     resizeCanvas();
   });
 
   await loadCustomFonts();
 
-  drawImage();
+  resizeCanvas();
+  // drawImage();
 }
 
 function startEdit(img) {
@@ -31,9 +30,12 @@ function startEdit(img) {
 function resizeCanvas() {
   const elContainer = document.querySelector('.image-container');
   gElCanvas.width = elContainer.offsetWidth;
+
+  delayOn(drawImage);
+  // drawImage();
 }
 
-function drawImage() {
+const drawImage = () => {
   const lines = getLines();
   const elImg = new Image();
   elImg.src = gCurrImage;
@@ -49,7 +51,7 @@ function drawImage() {
     //set options controls according to text settings
     initControls();
   };
-}
+};
 
 function drawText(text, x, y) {
   applyTextOptions();
