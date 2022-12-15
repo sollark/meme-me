@@ -4,7 +4,7 @@ const customFonts = [
   {
     name: 'Impact',
     label: 'Impact',
-    path: 'assets/fonts/Impact/impact.ttf',
+    path: '/assets/fonts/Impact/impact.ttf',
     style: 'normal',
     weight: '400',
   },
