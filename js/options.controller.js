@@ -1,7 +1,7 @@
 'use strict';
 
-function applyTextOptions() {
-  const line = getLine();
+function applyTextOptions(idx) {
+  const line = getLine(idx);
 
   gCtx.lineWidth = line.lineWidth;
   gCtx.strokeStyle = line.strokeStyle;
@@ -21,7 +21,7 @@ function onTextOption(el) {
 function onFontSizeUp() {
   const line = getLine();
   line.fontSize = '' + (+line.fontSize + 3);
-
+  // console.log('gMeme:', gMeme);
   drawImage();
 }
 

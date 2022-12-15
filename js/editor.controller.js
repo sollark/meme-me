@@ -44,8 +44,8 @@ const drawImage = () => {
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
 
     // draw all lines
-    lines.forEach((line) => {
-      drawText(line.text, line.posX, line.posY);
+    lines.forEach((line, idx) => {
+      drawText(line, idx);
     });
 
     //set options controls according to text settings
@@ -53,11 +53,12 @@ const drawImage = () => {
   };
 };
 
-function drawText(text, x, y) {
-  applyTextOptions();
+function drawText(line, idx) {
+  applyTextOptions(idx);
+  const { text, posX, posY } = line;
 
-  gCtx.fillText(text, x, y);
-  gCtx.strokeText(text, x, y);
+  gCtx.fillText(text, posX, posY);
+  gCtx.strokeText(text, posX, posY);
 }
 
 function onTextChange() {

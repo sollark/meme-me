@@ -38,9 +38,8 @@ function getMeme() {
   return gMeme;
 }
 
-// TODO need?
-function getLine() {
-  return gMeme.lines[gMeme.selectedLineIdx];
+function getLine(idx = gMeme.selectedLineIdx) {
+  return gMeme.lines[idx];
 }
 
 function getLines() {
