@@ -41,4 +41,15 @@ function onTextAlign(el) {
   drawImage();
 }
 
-function initControls() {}
+function initControls() {
+  console.log('iniControl');
+  const line = getLine();
+
+  //  gCtx.lineWidth = line.lineWidth;
+  const elStrokeColor = document.querySelector('.stroke-color');
+  elStrokeColor = line.strokeStyle;
+
+  // gCtx.fillStyle = line.fillStyle;
+  //  gCtx.font = `${line.fontSize}px ${line.fontFamily}`;
+  //  gCtx.textAlign = line.textAlign;
+}

@@ -34,24 +34,18 @@ function resizeCanvas() {
 }
 
 function drawImage() {
-  const meme = getMeme();
+  const lines = getLines();
   const elImg = new Image();
   elImg.src = gCurrImage;
 
   elImg.onload = () => {
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
 
-    // save currLine
-    const currLine = getLineIdx();
-
     // draw all lines
-    meme.lines.forEach((line, idx) => {
+    lines.forEach((line, idx) => {
       focusOnLine(idx);
       drawText(line.text, line.posX, line.posY);
     });
-
-    // restore line
-    focusOnLine(currLine);
 
     //set options controls according to text settings
     initControls();

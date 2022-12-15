@@ -38,8 +38,13 @@ function getMeme() {
   return gMeme;
 }
 
+// TODO need?
 function getLine() {
   return gMeme.lines[gMeme.selectedLineIdx];
+}
+
+function getLines() {
+  return gMeme.lines;
 }
 
 function getLineCounter() {
