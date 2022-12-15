@@ -4,10 +4,18 @@
 let gLineCounter = 2;
 
 function onSwitchLine() {
+  const elInputLine = document.querySelector('.input-line');
+  elInputLine.focus();
+
   focusOnLNextine();
+
+  drawImage();
 }
 
 function onAddLine() {
+  const elInputLine = document.querySelector('.input-line');
+  elInputLine.focus();
+
   addNewLine();
   updateLineCounter();
 

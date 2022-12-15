@@ -45,11 +45,35 @@ function initControls() {
   console.log('iniControl');
   const line = getLine();
 
+  const elInputLine = document.querySelector('.input-line');
+  elInputLine.value = line.text;
+
+  // remove placeholder
+  if (
+    elInputLine.value === 'TOP LINE' ||
+    elInputLine.value === 'BOTTOM LINE' ||
+    elInputLine.value === 'NEW LINE'
+  ) {
+    line.text = '';
+    elInputLine.value = '';
+  }
+
   //  gCtx.lineWidth = line.lineWidth;
   const elStrokeColor = document.querySelector('.stroke-color');
-  elStrokeColor = line.strokeStyle;
+  elStrokeColor.value = line.strokeStyle;
 
-  // gCtx.fillStyle = line.fillStyle;
-  //  gCtx.font = `${line.fontSize}px ${line.fontFamily}`;
+  const elFontColor = document.querySelector('.font-color');
+  elFontColor.value = line.fillStyle;
+
+  const elFontFamily = document.querySelector('.select-font');
+  elFontFamily.value = line.fontFamily;
+
   //  gCtx.textAlign = line.textAlign;
+}
+
+function onFontSelect(el) {
+  const line = getLine();
+  line.fontFamily = el.value;
+
+  drawImage();
 }

@@ -41,7 +41,6 @@
           <input
             class="input input-line"
             type="text"
-            placeholder="Text Line"
             oninput="onTextChange()" />
 
           <div class="tools line-tools">
@@ -85,8 +84,13 @@
               onclick="onTextAlign(this)">
               align left
             </button>
-            <select name="font">
-              <option value="impact">IMPACT</option>
+            <select
+              class="select select-font"
+              name="font"
+              onchange="onFontSelect(this)">
+              <option value="Impact">Impact</option>
+              <option value="Anton">Anton</option>
+              <option value="Oswald-Regular">Oswald Regular</option>
             </select>
             <input
               class="input stroke-color"

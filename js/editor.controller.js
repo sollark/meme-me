@@ -42,8 +42,7 @@ function drawImage() {
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
 
     // draw all lines
-    lines.forEach((line, idx) => {
-      focusOnLine(idx);
+    lines.forEach((line) => {
       drawText(line.text, line.posX, line.posY);
     });
 
