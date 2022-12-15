@@ -48,8 +48,8 @@
             <button class="button" onclick="on()">move up</button>
             <button class="button" onclick="on()">move down</button>
             <button class="button" onclick="onSwitchLine()">switch line</button>
-            <button class="button" onclick="on()">add text line</button>
-            <button class="button" onclick="on()">add delete line</button>
+            <button class="button" onclick="onAddLine()">add line</button>
+            <button class="button" onclick="onDeleteLine()">delete line</button>
           </div>
           <div class="tools text-tools">
             <button
@@ -67,7 +67,7 @@
             <button
               class="button align"
               data-option="textAlign"
-              data-value="right"
+              data-value="start"
               onclick="onTextAlign(this)">
               align right
             </button>
@@ -81,7 +81,7 @@
             <button
               class="button align"
               data-option="textAlign"
-              data-value="left"
+              data-value="end"
               onclick="onTextAlign(this)">
               align left
             </button>

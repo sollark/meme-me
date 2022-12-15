@@ -9,26 +9,51 @@ let gMeme = {
   selectedLineIdx: 0,
   lines: [
     {
-      text: 'I sometimes eat Falafel',
-      size: '20',
+      text: 'Top Line',
+      fontSize: '40',
       align: 'left',
-      color: 'red',
+      strokeStyle: 'red',
+      fillStyle: 'red',
+      posX: 200,
+      posY: 100,
+    },
+    {
+      text: 'Bottom Line',
+      fontSize: '40',
+      align: 'left',
+      strokeStyle: 'red',
+      fillStyle: 'red',
+      posX: 200,
+      posY: 550,
     },
   ],
 };
 
+//TODO check if can be replaces with getLine
 function getMeme() {
   return gMeme;
 }
 
+function getLine() {
+  return gMeme.lines[gMeme.selectedLineIdx];
+}
+
+function getLineIdx() {
+  return gMeme.selectedLineIdx;
+}
+
 function setText(text) {
-  gMeme.lines[selectedLineIdx].text = text;
+  gMeme.lines[gMeme.selectedLineIdx].text = text;
 }
 
 function selectImage(id) {
   gMeme.selectedImgId = id;
   gMeme.selectedLineIdx = 0;
   gMeme.lines = [];
+}
+
+function focusOnLine(lineIdx) {
+  gMeme.selectedLineIdx = lineIdx;
 }
 
 function updateTextOption(lineId, option) {

@@ -40,15 +40,26 @@ function drawImage() {
 
   elImg.onload = () => {
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
-    drawText(meme.lines[0].text);
+
+    // save currLine
+    const currLine = getLineIdx();
+
+    // draw all lines
+    meme.lines.forEach((line, idx) => {
+      focusOnLine(idx);
+      drawText(line.text, line.posX, line.posY);
+    });
+
+    // restore line
+    focusOnLine(currLine);
   };
 }
 
-function drawText(text) {
+function drawText(text, x, y) {
   applyTextOptions();
 
-  gCtx.fillText(text, 200, 100);
-  gCtx.strokeText(text, 200, 100);
+  gCtx.fillText(text, x, y);
+  gCtx.strokeText(text, x, y);
 }
 
 function onTextChange() {
