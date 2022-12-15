@@ -45,8 +45,15 @@ function drawImage() {
 }
 
 function drawText(text) {
-  applyCtxSettings();
+  applyTextOptions();
 
   gCtx.fillText(text, 200, 100);
   gCtx.strokeText(text, 200, 100);
+}
+
+function onTextChange() {
+  const elLine = document.querySelector('.input-line');
+  setText(elLine.value);
+
+  drawImage();
 }

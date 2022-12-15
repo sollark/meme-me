@@ -42,26 +42,62 @@
             class="input input-line"
             type="text"
             placeholder="Text Line"
-            oninput="onLineChange()" />
+            oninput="onTextChange()" />
 
           <div class="tools line-tools">
-            <button>move up</button>
-            <button>move down</button>
-            <button>switch line</button>
-            <button>add text line</button>
-            <button>add delete line</button>
+            <button class="button" onclick="on()">move up</button>
+            <button class="button" onclick="on()">move down</button>
+            <button class="button" onclick="onSwitchLine()">switch line</button>
+            <button class="button" onclick="on()">add text line</button>
+            <button class="button" onclick="on()">add delete line</button>
           </div>
           <div class="tools text-tools">
-            <button>font up</button>
-            <button>font down</button>
-            <button>align left</button>
-            <button>align right</button>
-            <button>align center</button>
+            <button
+              class="button font-up"
+              data-option="fontSize"
+              onclick="onFontSizeUp()">
+              font up
+            </button>
+            <button
+              class="button font-down"
+              data-option="fontSize"
+              onclick="onFontSizeDown()">
+              font down
+            </button>
+            <button
+              class="button align"
+              data-option="textAlign"
+              data-value="right"
+              onclick="onTextAlign(this)">
+              align right
+            </button>
+            <button
+              class="button align"
+              data-option="textAlign"
+              data-value="center"
+              onclick="onTextAlign(this)">
+              align center
+            </button>
+            <button
+              class="button align"
+              data-option="textAlign"
+              data-value="left"
+              onclick="onTextAlign(this)">
+              align left
+            </button>
             <select name="font">
               <option value="impact">IMPACT</option>
             </select>
-            <input type="color" />
-            <input type="color" />
+            <input
+              class="input stroke-color"
+              data-option="strokeStyle"
+              onchange="onTextOption(this)"
+              type="color" />
+            <input
+              class="input font-color"
+              data-option="fillStyle"
+              onchange="onTextOption(this)"
+              type="color" />
           </div>
           <div class="tools sticker-tools">stickers</div>
           <div class="tools image-tools">
@@ -76,7 +112,8 @@
     <script src="js/fonts.js"></script>
     <script src="js/sevices/meme.service.js"></script>
     <script src="js/gallery.controller.js"></script>
-    <script src="js/settings.controller.js"></script>
+    <script src="js/options.controller.js"></script>
+    <script src="js/line.controller.js"></script>
     <script src="js/editor.controller.js"></script>
     <script src="js/main.controller.js"></script>
   </body>
