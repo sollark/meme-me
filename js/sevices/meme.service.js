@@ -9,20 +9,24 @@ let gMeme = {
   selectedLineIdx: 0,
   lines: [
     {
+      lineWidth: 2,
       text: 'Top Line',
       fontSize: '40',
-      align: 'left',
-      strokeStyle: 'red',
-      fillStyle: 'red',
+      fontFamily: 'Impact',
+      align: 'center',
+      strokeStyle: 'black',
+      fillStyle: 'white',
       posX: 200,
       posY: 100,
     },
     {
+      lineWidth: 2,
       text: 'Bottom Line',
       fontSize: '40',
-      align: 'left',
-      strokeStyle: 'red',
-      fillStyle: 'red',
+      fontFamily: 'Impact',
+      align: 'center',
+      strokeStyle: 'black',
+      fillStyle: 'white',
       posX: 200,
       posY: 550,
     },
@@ -36,6 +40,35 @@ function getMeme() {
 
 function getLine() {
   return gMeme.lines[gMeme.selectedLineIdx];
+}
+
+function getLineCounter() {
+  return gMeme.lines.length;
+}
+
+function addNewLine() {
+  gMeme.lines.push({
+    lineWidth: 2,
+    text: 'New Line',
+    strokeStyle: 'black',
+    fillStyle: 'white',
+    fontSize: '40',
+    fontFamily: 'Impact',
+    textAlign: 'center',
+    posX: 200,
+    posY: 300,
+  });
+
+  gMeme.selectedLineIdx = gMeme.lines.length - 1;
+}
+
+function deleteLine() {
+  if (gMeme.lines.length === 1) {
+    console.log('cannot delete last line');
+    return;
+  }
+
+  gMeme.lines.splice(gMeme.selectedLineIdx--, 1);
 }
 
 function getLineIdx() {
@@ -54,6 +87,10 @@ function selectImage(id) {
 
 function focusOnLine(lineIdx) {
   gMeme.selectedLineIdx = lineIdx;
+}
+
+function focusOnLNextine() {
+  gMeme.selectedLineIdx = ++gMeme.selectedLineIdx % getLineCounter();
 }
 
 function updateTextOption(lineId, option) {

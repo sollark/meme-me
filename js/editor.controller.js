@@ -52,6 +52,9 @@ function drawImage() {
 
     // restore line
     focusOnLine(currLine);
+
+    //set options controls according to text settings
+    initControls();
   };
 }
 
