@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/main.css" />
     <title>Meme Me</title>
   </head>
-  <body class="flex flex-column" onload="onInit()">
+  <body class="flex flex-column" data-view="gallery" onload="onInit()">
     <!-- main header  -->
     <header class="main-layout main-header flex space-between">
       <div class="logo">
@@ -16,14 +16,15 @@
       </div>
 
       <nav>
-        <button>Gallery</button><button>Memes</button><button>About</button>
+        <button onclick="onGallery()">Gallery</button
+        ><button onclick="onMeme()">Memes</button><button>About</button>
       </nav>
     </header>
 
     <!-- main  -->
     <main class="main-layout">
       <!-- image gallery  -->
-      <div class="gallery hidden">
+      <div class="gallery">
         <header class="gallery__header flex">
           <input type="search" class="input" placeholder="Search" />
           <div class="keyword-container">keywords</div>
@@ -159,6 +160,7 @@
     <footer class="main-layout"></footer>
     <script src="js/fonts.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/sevices/image.service.js"></script>
     <script src="js/sevices/meme.service.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/options.controller.js"></script>

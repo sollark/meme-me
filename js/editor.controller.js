@@ -1,6 +1,6 @@
 'use strict';
 
-let gCurrImage = `assets/images/1.jpg`;
+let gCurrImage = null;
 
 let gElCanvas;
 let gCtx;
@@ -23,8 +23,9 @@ async function _initEditor() {
 }
 
 function startEdit(img) {
-  //   const elContainer = document.querySelector('.image-container');
-  //   elContainer.innerHTML = `<img src='${img}' alt='Image'></img>`;
+  gCurrImage = img;
+
+  drawImage();
 }
 
 function resizeCanvas() {
@@ -38,25 +39,22 @@ function resizeCanvas() {
 }
 
 const drawImage = () => {
+  if (!gCurrImage) return;
   const lines = getLines();
-  const elImg = new Image();
-  elImg.src = gCurrImage;
 
-  elImg.onload = () => {
-    const { width, height } = fitImage(elImg);
-    gElCanvas.width = width;
-    gElCanvas.height = height;
+  const { width, height } = fitImage(gCurrImage);
+  gElCanvas.width = width;
+  gElCanvas.height = height;
 
-    gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
+  gCtx.drawImage(gCurrImage, 0, 0, gElCanvas.width, gElCanvas.height);
 
-    // draw all lines
-    lines.forEach((line, idx) => {
-      drawText(line, idx);
-    });
+  // draw all lines
+  lines.forEach((line, idx) => {
+    drawText(line, idx);
+  });
 
-    //set options controls according to text settings
-    initControls();
-  };
+  //set options controls according to text settings
+  initControls();
 };
 
 function drawText(line, idx) {

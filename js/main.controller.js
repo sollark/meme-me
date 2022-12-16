@@ -4,14 +4,15 @@ function onInit() {
   console.log('inInit');
   // loadCustomFonts();
   //load fonts
+  _loadImages();
 }
 
-function onStartEdit(image) {
-  const elGallery = document.querySelector('.gallery');
-  const elEditor = document.querySelector('.editor');
+function onGallery() {
+  const elBody = document.querySelector('body');
+  elBody.dataset.view = 'gallery';
+}
 
-  elGallery.classList.toggle('hidden');
-  elEditor.classList.toggle('hidden');
-
-  startEdit(image);
+function onMeme() {
+  const elBody = document.querySelector('body');
+  elBody.dataset.view = 'editor';
 }
