@@ -2,6 +2,9 @@ body[data-view="gallery"] .editor {
     display: none;
 }
 
+.editor:not(.active) {
+    pointer-events: none;
+}
 
 .editor {
     height: 100%;

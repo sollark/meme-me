@@ -24,6 +24,7 @@ function onAddLine() {
 
 function onDeleteLine() {
   deleteLine();
+  focusOnLNextine();
   updateLineCounter();
 
   drawImage();

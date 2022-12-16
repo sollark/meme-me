@@ -2,8 +2,6 @@
 
 const gImages = [];
 
-_loadImages();
-
 function renderImageGallery() {
   const elContainer = document.querySelector('.images-container');
   const images = gImages;
@@ -15,7 +13,7 @@ function renderImageGallery() {
   elContainer.innerHTML = strHtmls.join('');
 }
 
-function _loadImages() {
+function loadImages() {
   const images = getImages();
 
   images.forEach((image) => {

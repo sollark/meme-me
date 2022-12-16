@@ -12,8 +12,8 @@ let gMeme = {
       textAlign: 'center',
       strokeStyle: '#ffffff',
       fillStyle: '#000000',
-      posX: 200,
-      posY: 100,
+      posX: 0.5,
+      posY: 0.2,
     },
     {
       lineWidth: 2,
@@ -23,8 +23,8 @@ let gMeme = {
       textAlign: 'center',
       strokeStyle: '#ffffff',
       fillStyle: '#000000',
-      posX: 200,
-      posY: 550,
+      posX: 0.5,
+      posY: 0.85,
     },
   ],
 };
@@ -55,8 +55,8 @@ function addNewLine() {
     fontSize: '40',
     fontFamily: 'Impact',
     textAlign: 'center',
-    posX: 200,
-    posY: 300,
+    posX: 0.5,
+    posY: 0.5,
   });
 
   gMeme.selectedLineIdx = gMeme.lines.length - 1;

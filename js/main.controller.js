@@ -2,9 +2,17 @@
 
 function onInit() {
   console.log('inInit');
+
+  if (gCurrImage) {
+    //   const elEditor = document.querySelector('.editor');
+    //   elEditor.classList.add('active');
+
+    onMeme();
+  }
   // loadCustomFonts();
   //load fonts
-  _loadImages();
+  loadImages();
+  initEditor();
 }
 
 function onGallery() {
@@ -15,4 +23,9 @@ function onGallery() {
 function onMeme() {
   const elBody = document.querySelector('body');
   elBody.dataset.view = 'editor';
+
+  // if (gCurrImage) {
+  //   const elEditor = document.querySelector('.editor');
+  //   elEditor.classList.add('active');
+  // }
 }

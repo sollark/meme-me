@@ -5,10 +5,7 @@ let gCurrImage = null;
 let gElCanvas;
 let gCtx;
 
-_initEditor();
-
-async function _initEditor() {
-  const elContainer = document.querySelector('.image-container');
+async function initEditor() {
   gElCanvas = document.querySelector('.canvas');
   gCtx = gElCanvas.getContext('2d');
 
@@ -19,11 +16,15 @@ async function _initEditor() {
   await loadCustomFonts();
 
   resizeCanvas();
-  // drawImage();
 }
 
 function startEdit(img) {
   gCurrImage = img;
+
+  if (gCurrImage) {
+    const elEditor = document.querySelector('.editor');
+    elEditor.classList.add('active');
+  }
 
   drawImage();
 }
@@ -61,10 +62,14 @@ function drawText(line, idx) {
   applyTextOptions(idx);
   const { text, posX, posY } = line;
 
-  gCtx.fillText(text, posX, posY);
-  gCtx.strokeText(text, posX, posY);
+  const textPosX = gElCanvas.width * posX;
+  const textPosY = gElCanvas.height * posY;
+
+  gCtx.fillText(text, textPosX, textPosY);
+  gCtx.strokeText(text, textPosX, textPosY);
 }
 
+// TODO text align
 function onTextChange() {
   const elLine = document.querySelector('.input-line');
   setText(elLine.value);

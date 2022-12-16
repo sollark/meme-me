@@ -36,14 +36,12 @@ function onFontSizeDown() {
 function onTextAlign(el) {
   const line = getLine();
   line.textAlign = el.getAttribute('data-value');
-  console.log('line:', line);
-  console.log('gMeme:', gMeme);
 
   drawImage();
 }
 
+// TODO text align
 function initControls() {
-  console.log('iniControl');
   const line = getLine();
 
   const elInputLine = document.querySelector('.input-line');
