@@ -1,29 +1,8 @@
-body[data-view="editor"] .gallery {
+body[data-view="editor"] .gallery,
+body[data-view="memes"] .gallery {
     display: none;
-}
-
-.gallery {
-    /* padding: 1em; */
-}
-
-.gallery img {
-    cursor: pointer;
 }
 
 .gallery__header {
     padding: 1em;
-}
-
-.images-container {
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1em;
-}
-
-.image-wrapper {
-    margin: 0 auto;
-    width: 200px;
-    /* height: 200px; */
-
-    background-color: burlywood;
 }

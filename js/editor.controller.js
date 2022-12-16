@@ -18,8 +18,10 @@ async function initEditor() {
   resizeCanvas();
 }
 
-function startEdit(img) {
-  gCurrImage = img;
+function startEdit() {
+  const image = gImages.find((img) => img.id === getCurrImageId());
+
+  gCurrImage = image;
 
   if (gCurrImage) {
     const elEditor = document.querySelector('.editor');
@@ -41,6 +43,9 @@ function resizeCanvas() {
 
 const drawImage = () => {
   if (!gCurrImage) return;
+
+  // createNewMeme(gCurrImage.id);
+
   const lines = getLines();
 
   const { width, height } = fitImage(gCurrImage);
@@ -98,4 +103,10 @@ function fitImage(image) {
   }
 
   return { width, height };
+}
+
+function onSave() {
+  var canvasImageData = gElCanvas.toDataURL('image/jpeg', 1.0);
+
+  saveMeme(canvasImageData);
 }

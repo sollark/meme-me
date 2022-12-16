@@ -12,6 +12,7 @@ function onInit() {
   // loadCustomFonts();
   //load fonts
   loadImages();
+  renderMemeGallery();
   initEditor();
 }
 
@@ -22,7 +23,7 @@ function onGallery() {
 
 function onMeme() {
   const elBody = document.querySelector('body');
-  elBody.dataset.view = 'editor';
+  elBody.dataset.view = 'memes';
 
   // if (gCurrImage) {
   //   const elEditor = document.querySelector('.editor');

@@ -1,6 +1,6 @@
 'use strict';
 
-let gMeme = {
+const gDefaultMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
   lines: [
@@ -29,25 +29,73 @@ let gMeme = {
   ],
 };
 
-//TODO check if can be replaces with getLine
-function getMeme() {
-  return gMeme;
+let gCurrMeme = {
+  selectedImgId: 1,
+  selectedLineIdx: 0,
+  lines: [
+    {
+      lineWidth: 2,
+      text: 'TOP LINE',
+      fontSize: '40',
+      fontFamily: 'Impact',
+      textAlign: 'center',
+      strokeStyle: '#ffffff',
+      fillStyle: '#000000',
+      posX: 0.5,
+      posY: 0.2,
+    },
+    {
+      lineWidth: 2,
+      text: 'BOTTOM LINE',
+      fontSize: '40',
+      fontFamily: 'Impact',
+      textAlign: 'center',
+      strokeStyle: '#ffffff',
+      fillStyle: '#000000',
+      posX: 0.5,
+      posY: 0.85,
+    },
+  ],
+};
+
+function createNewMeme(imgId) {
+  // console.log('gCurrImage:', gCurrImage);
+  gCurrMeme = gDefaultMeme;
+  gCurrMeme.selectedImgId = imgId;
 }
 
-function getLine(idx = gMeme.selectedLineIdx) {
-  return gMeme.lines[idx];
+//TODO check if can be replaces with getLine
+function getMeme() {
+  return gCurrMeme;
+}
+
+function setSavedMeme(meme) {
+  // console.log(' in service i restore meme:', meme);
+  gCurrMeme = meme;
+}
+
+function getCurrImageId() {
+  return gCurrMeme.selectedImgId;
+}
+
+function getLine(idx = gCurrMeme.selectedLineIdx) {
+  return gCurrMeme.lines[idx];
 }
 
 function getLines() {
-  return gMeme.lines;
+  return gCurrMeme.lines;
 }
 
 function getLineCounter() {
-  return gMeme.lines.length;
+  return gCurrMeme.lines.length;
+}
+
+function getLineIdx() {
+  return gCurrMeme.selectedLineIdx;
 }
 
 function addNewLine() {
-  gMeme.lines.push({
+  gCurrMeme.lines.push({
     lineWidth: 2,
     text: 'NEW LINE',
     strokeStyle: '#ffffff',
@@ -59,43 +107,39 @@ function addNewLine() {
     posY: 0.5,
   });
 
-  gMeme.selectedLineIdx = gMeme.lines.length - 1;
+  gCurrMeme.selectedLineIdx = gCurrMeme.lines.length - 1;
 }
 
 function deleteLine() {
-  if (gMeme.lines.length === 1) {
+  if (gCurrMeme.lines.length === 1) {
     console.log('cannot delete last line');
     return;
   }
 
-  gMeme.lines.splice(gMeme.selectedLineIdx--, 1);
-}
-
-function getLineIdx() {
-  return gMeme.selectedLineIdx;
+  gCurrMeme.lines.splice(gCurrMeme.selectedLineIdx--, 1);
 }
 
 function setText(text) {
-  gMeme.lines[gMeme.selectedLineIdx].text = text;
+  gCurrMeme.lines[gCurrMeme.selectedLineIdx].text = text;
 }
 
 function selectImage(id) {
-  gMeme.selectedImgId = id;
-  gMeme.selectedLineIdx = 0;
-  gMeme.lines = [];
+  gCurrMeme.selectedImgId = id;
+  gCurrMeme.selectedLineIdx = 0;
+  gCurrMeme.lines = [];
 }
 
 function focusOnLine(lineIdx) {
-  gMeme.selectedLineIdx = lineIdx;
+  gCurrMeme.selectedLineIdx = lineIdx;
 }
 
 function focusOnLNextine() {
-  gMeme.selectedLineIdx = ++gMeme.selectedLineIdx % getLineCounter();
+  gCurrMeme.selectedLineIdx = ++gCurrMeme.selectedLineIdx % getLineCounter();
 }
 
 function updateTextOption(lineId, option) {
-  if (gMeme.lines[lineId]) {
+  if (gCurrMeme.lines[lineId]) {
     const entries = Object.entries(option);
-    gMeme.lines[lineId][entries[0][0]] = entries[0][1];
+    gCurrMeme.lines[lineId][entries[0][0]] = entries[0][1];
   } else console.log('lines[lineId] is undefined', option);
 }

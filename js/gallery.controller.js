@@ -39,7 +39,17 @@ function onStartEdit(imageId) {
   const elBody = document.querySelector('body');
   elBody.dataset.view = 'editor';
 
-  const image = gImages.find((img) => img.id === imageId);
+  createNewMeme(imageId);
 
-  startEdit(image);
+  startEdit();
+}
+
+function onResumeEdit(savedMemeIdx) {
+  const elBody = document.querySelector('body');
+  elBody.dataset.view = 'editor';
+
+  const { meme } = getSavesMeme(savedMemeIdx);
+  setSavedMeme(meme);
+
+  startEdit();
 }

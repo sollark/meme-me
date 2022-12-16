@@ -1,4 +1,5 @@
-body[data-view="gallery"] .editor {
+body[data-view="gallery"] .editor,
+body[data-view="memes"] .editor {
     display: none;
 }
 

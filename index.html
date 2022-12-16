@@ -22,6 +22,7 @@
       </nav>
     </header>
 
+    <!-- TODO reduce divs  -->
     <!-- main  -->
     <main class="main-layout">
       <!-- image gallery  -->
@@ -31,9 +32,9 @@
           <div class="keyword-container">keywords</div>
         </header>
 
-        <main class="gallery__container">
-          <div class="images-container flex"></div>
-        </main>
+        <section class="gallery__container">
+          <div class="images-container flex-gallery"></div>
+        </section>
       </div>
 
       <!-- editor  -->
@@ -153,17 +154,38 @@
                 src="assets/icons/download.png"
                 alt="download" />
             </button>
+            <button>
+              <img
+                class="icon"
+                src="assets/icons/save.png"
+                alt="save"
+                onclick="onSave()" />
+            </button>
           </div>
         </section>
       </div>
+
+      <!-- saved memes  -->
+      <div class="memes memes-container flex-gallery"></div>
     </main>
 
-    <footer class="main-layout"></footer>
+    <footer class="main-layout">
+      Save by Basello from
+      <a
+        href="https://thenounproject.com/browse/icons/term/save/"
+        target="_blank"
+        title="Save Icons"
+        >Noun Project</a
+      >
+    </footer>
     <script src="js/fonts.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/sevices/storage.service.js"></script>
+    <script src="js/sevices/saved.meme.service.js"></script>
     <script src="js/sevices/image.service.js"></script>
     <script src="js/sevices/meme.service.js"></script>
     <script src="js/gallery.controller.js"></script>
+    <script src="js/saved.meme.controller.js"></script>
     <script src="js/options.controller.js"></script>
     <script src="js/line.controller.js"></script>
     <script src="js/editor.controller.js"></script>
