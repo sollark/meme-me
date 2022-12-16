@@ -35,19 +35,34 @@ img {
     object-position: center;
 }
 
+/* ========== ICONS ========= */
+.icon {
+    width: 2.5rem;
+    height: 2.5rem
+}
 
 /* ========== BUTTONS INPUT========= */
 button,
 .btn,
-input {
+input,
+select {
     border: none;
     background-color: transparent;
     font: inherit;
     color: inherit;
 }
 
+input,
+select {
+    padding: 1em;
+}
 
 /* =============   HTML BODY  ============ */
 html {
     scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Ubuntu, sans-serif';
+    color: black;
 }

@@ -36,7 +36,8 @@ function onFontSizeDown() {
 function onTextAlign(el) {
   const line = getLine();
   line.textAlign = el.getAttribute('data-value');
-  // line[el.getAttribute('data-option')] = el.getAttribute('data-value');
+  console.log('line:', line);
+  console.log('gMeme:', gMeme);
 
   drawImage();
 }

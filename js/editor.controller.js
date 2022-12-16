@@ -28,11 +28,13 @@ function startEdit(img) {
 }
 
 function resizeCanvas() {
-  const elContainer = document.querySelector('.image-container');
-  gElCanvas.width = elContainer.offsetWidth;
+  let heightRatio = 1;
+  gElCanvas.height = gElCanvas.width * heightRatio;
+
+  gCtx.fillStyle = '#008000';
+  gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height);
 
   delayOn(drawImage);
-  // drawImage();
 }
 
 const drawImage = () => {
@@ -41,6 +43,10 @@ const drawImage = () => {
   elImg.src = gCurrImage;
 
   elImg.onload = () => {
+    const { width, height } = fitImage(elImg);
+    gElCanvas.width = width;
+    gElCanvas.height = height;
+
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height);
 
     // draw all lines
@@ -66,4 +72,27 @@ function onTextChange() {
   setText(elLine.value);
 
   drawImage();
+}
+
+function fitImage(image) {
+  const elContainer = document.querySelector('.image-container');
+  const maxWidth = elContainer.width;
+  const maxHeight = elContainer.height;
+
+  let width = image.width;
+  let height = image.height;
+
+  if (width > height) {
+    if (width > maxWidth) {
+      height *= maxWidth / width;
+      width = maxWidth;
+    }
+  } else {
+    if (height > maxHeight) {
+      width *= maxHeight / height;
+      height = maxHeight;
+    }
+  }
+
+  return { width, height };
 }

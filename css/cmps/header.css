@@ -2,17 +2,24 @@
     background-color: aqua;
 }
 
+.main-header button {
+    margin: 1.2em 0;
+    margin-inline-start: 1em;
+    padding: 0 0.6em;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
 /* MEDIA QUERIES*/
 
 /* mobile only  */
-@media (max-width: 600px) {}
+@media (max-width:770px) {}
 
 /* small  */
 @media (min-width: 600px) {}
 
 /* medium  */
-@media (min-width: 960px) {}
-
+@media (min-width: 1046px) {}
 
 /* large  */
 @media (min-width: 1200px) {}

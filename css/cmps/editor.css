@@ -1,3 +1,60 @@
-.editor-container {
-    padding: 1em;
+.editor {
+    height: 100%;
+    align-items: center;
 }
+
+canvas {
+    margin: 0 auto;
+}
+
+.controller-container,
+.image-container {
+    padding: 1em;
+    /* height: 100%; */
+}
+
+.image-container {
+    /* flex-grow: 1; */
+}
+
+/* MEDIA QUERIES*/
+
+/* mobile only  */
+@media (max-width: 600px) {}
+
+/* small  */
+@media (min-width: 600px) {
+    .editor {
+        flex-direction: column;
+    }
+
+    .controller-container {
+        width: 100%;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+
+    .tools {
+        flex-basis: content;
+    }
+}
+
+
+/* medium  */
+@media (min-width: 1046px) {
+    .editor {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .controller-container {
+        display: block;
+        width: auto;
+    }
+}
+
+/* large  */
+@media (min-width: 1200px) {}

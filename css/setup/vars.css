@@ -1,3 +1,5 @@
 :root {
-    --main-padding: 2em
+    --main-padding: 2em;
+
+    --btn-height-desktop: 3rem;
 }

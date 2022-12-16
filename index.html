@@ -11,7 +11,9 @@
   <body class="flex flex-column" onload="onInit()">
     <!-- main header  -->
     <header class="main-layout main-header flex space-between">
-      <div class="logo">Logo</div>
+      <div class="logo">
+        <img src="assets/icons/logo.png" alt="" srcset="" />
+      </div>
 
       <nav>
         <button>Gallery</button><button>Memes</button><button>About</button>
@@ -35,55 +37,90 @@
       <!-- editor  -->
       <div class="editor flex">
         <section class="image-container">
-          <canvas class="canvas" height="600" width="600"></canvas>
+          <canvas
+            id="responsive-canvas"
+            class="canvas"
+            style="max-width: 100%"></canvas>
         </section>
-        <section class="editor-container">
-          <input
-            class="input input-line"
-            type="text"
-            oninput="onTextChange()" />
+
+        <section class="controller-container">
+          <div class="tools input-tools">
+            <input
+              class="input input-line"
+              type="text"
+              oninput="onTextChange()" />
+          </div>
 
           <div class="tools line-tools">
-            <button class="button" onclick="on()">move up</button>
-            <button class="button" onclick="on()">move down</button>
-            <button class="button" onclick="onSwitchLine()">switch line</button>
-            <button class="button" onclick="onAddLine()">add line</button>
-            <button class="button" onclick="onDeleteLine()">delete line</button>
+            <!-- <button class="button" onclick="on()">move up</button>
+            <button class="button" onclick="on()">move down</button> -->
+            <button class="button" onclick="onSwitchLine()">
+              <img
+                class="icon"
+                src="assets/icons/double-arrows-.png"
+                alt="change line" />
+            </button>
+            <button class="button" onclick="onAddLine()">
+              <img class="icon" src="assets/icons/add.png" alt="add line" />
+            </button>
+            <button class="button" onclick="onDeleteLine()">
+              <img
+                class="icon"
+                src="assets/icons/trash.png"
+                alt="delete line" />
+            </button>
           </div>
           <div class="tools text-tools">
             <button
               class="button font-up"
               data-option="fontSize"
               onclick="onFontSizeUp()">
-              font up
+              <img
+                class="icon"
+                src="assets/icons/increase-font.png"
+                alt="increase font" />
             </button>
             <button
               class="button font-down"
               data-option="fontSize"
               onclick="onFontSizeDown()">
-              font down
+              <img
+                class="icon"
+                src="assets/icons/decrease-font.png"
+                alt="decrease font" />
             </button>
             <button
               class="button align"
               data-option="textAlign"
               data-value="start"
               onclick="onTextAlign(this)">
-              align right
+              <img
+                class="icon"
+                src="assets/icons/align-to-left.png"
+                alt="align text to start" />
             </button>
             <button
               class="button align"
               data-option="textAlign"
               data-value="center"
               onclick="onTextAlign(this)">
-              align center
+              <img
+                class="icon"
+                src="assets/icons/align-to-center.png"
+                alt="align text to center" />
             </button>
             <button
               class="button align"
               data-option="textAlign"
               data-value="end"
               onclick="onTextAlign(this)">
-              align left
+              <img
+                class="icon"
+                src="assets/icons/align-to-right.png"
+                alt="align text to end" />
             </button>
+          </div>
+          <div class="tools font-color-tools">
             <select
               class="select select-font"
               name="font"
@@ -93,20 +130,27 @@
               <option value="Oswald-Regular">Oswald Regular</option>
             </select>
             <input
-              class="input stroke-color"
+              class="input color stroke-color"
               data-option="strokeStyle"
               onchange="onTextOption(this)"
               type="color" />
             <input
-              class="input font-color"
+              class="input color font-color"
               data-option="fillStyle"
               onchange="onTextOption(this)"
               type="color" />
           </div>
           <div class="tools sticker-tools">stickers</div>
           <div class="tools image-tools">
-            <button>share</button>
-            <button>download</button>
+            <button>
+              <img class="icon" src="assets/icons/share.png" alt="share" />
+            </button>
+            <button>
+              <img
+                class="icon"
+                src="assets/icons/download.png"
+                alt="download" />
+            </button>
           </div>
         </section>
       </div>
