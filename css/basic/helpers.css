@@ -30,7 +30,7 @@
 }
 
 /* mobile only  */
-@media (max-width: 600px) {
+@media (max-width: 499px) {
     .hide-on-small-screen {
         display: none;
     }
@@ -41,7 +41,7 @@
 }
 
 /* small  */
-@media (min-width: 600px) {
+@media (min-width: 500px) {
     .hide-on-small-screen {
         display: initial;
     }

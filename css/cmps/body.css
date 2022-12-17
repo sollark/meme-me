@@ -1,3 +1,7 @@
 body[data-view="gallery"] {
     height: auto;
 }
+
+body {
+    position: relative;
+}

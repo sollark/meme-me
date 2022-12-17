@@ -10,6 +10,7 @@ body[data-view="memes"] .editor {
 .editor {
     height: 100%;
     align-items: center;
+    flex-direction: column;
 }
 
 canvas {
@@ -19,23 +20,52 @@ canvas {
 .controller-container,
 .image-container {
     padding: 1em;
-    /* height: 100%; */
+
 }
 
-.image-container {
-    /* flex-grow: 1; */
-}
+
+
 
 /* MEDIA QUERIES*/
 
 /* mobile only  */
-@media (max-width: 500px) {}
+@media (max-width: 499px) {
+    .mobile-controller-menu {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-around;
+
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+
+        padding-bottom: 0.5em;
+
+        height: 4rem;
+        background-color: aqua;
+    }
+
+    .mobile-controller-menu span {
+        padding: 1em;
+        border-radius: 50%;
+        display: inline-block;
+        background-color: aqua;
+
+        box-shadow: 0 0 5px 1px gray;
+    }
+
+    .mobile-icon {
+        width: 2rem;
+    }
+
+    span:nth-child(3) .mobile-icon {
+        width: 3.2rem;
+    }
+}
 
 /* small  */
 @media (min-width: 500px) {
-    .editor {
-        flex-direction: column;
-    }
+
 
     .controller-container {
         width: 100%;

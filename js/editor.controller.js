@@ -116,6 +116,19 @@ function onTextChange() {
   drawImage();
 }
 
+function onTextChangeMobile() {
+  const elLine = document.querySelector('.input-line-mobile');
+  editLineText(elLine.value);
+
+  drawImage();
+}
+
+function onEditTextMobile() {
+  const input = document.querySelector('.input-line-mobile');
+  input.focus();
+  console.log('click');
+}
+
 function fitImage(image) {
   const elContainer = document.querySelector('.image-container');
   const maxWidth = elContainer.width;

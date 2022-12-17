@@ -47,7 +47,7 @@
             style="max-width: 100%"></canvas>
         </section>
 
-        <section class="controller-container">
+        <section class="controller-container hide-on-small-screen">
           <div class="tools input-tools">
             <input
               class="input input-line"
@@ -164,6 +164,48 @@
             </button>
           </div>
         </section>
+
+        <section class="mobile-controller-menu hide-on-big-screen full">
+          <span>
+            <img
+              class="mobile-icon"
+              src="assets/icons/mobile-menu/font-stroke.png"
+              alt="" />
+          </span>
+          <span>
+            <img
+              class="mobile-icon"
+              src="assets/icons/mobile-menu/font-fill.png"
+              alt="" />
+          </span>
+          <span>
+            <img
+              class="mobile-icon"
+              src="assets/icons/mobile-menu/text-expand.svg"
+              alt=""
+              onclick="onEditTextMobile()" />
+          </span>
+
+          <span>
+            <img
+              class="mobile-icon"
+              src="assets/icons/mobile-menu/font-size.svg"
+              alt="" />
+          </span>
+
+          <span>
+            <img
+              class="mobile-icon"
+              src="assets/icons/mobile-menu/align-left.svg"
+              alt="" />
+          </span>
+        </section>
+        <section class="hidden-input">
+          <input
+            class="input input-line-mobile"
+            type="text"
+            oninput="onTextChangeMobile()" />
+        </section>
       </div>
 
       <!-- saved memes  -->
@@ -178,6 +220,9 @@
         title="Save Icons">
         Noun Project
       </a>
+      <a href="https://www.flaticon.com/free-icons/font" title="font icons"
+        >Font icons created by Freepik - Flaticon</a
+      >
     </footer>
 
     <script src="js/fonts.js"></script>
