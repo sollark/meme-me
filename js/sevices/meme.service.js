@@ -1,64 +1,40 @@
 'use strict';
 
+// TODO posX
 const gDefaultMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
   lines: [
     {
+      isDrag: false,
       lineWidth: 2,
       text: 'TOP LINE',
       fontSize: '40',
       fontFamily: 'Impact',
-      textAlign: 'center',
+      textAlign: 'start',
       strokeStyle: '#ffffff',
       fillStyle: '#000000',
-      posX: 0.5,
-      posY: 0.2,
+      posX: 0,
+      posY: 0,
     },
     {
+      isDrag: false,
       lineWidth: 2,
       text: 'BOTTOM LINE',
       fontSize: '40',
       fontFamily: 'Impact',
-      textAlign: 'center',
+      textAlign: 'start',
       strokeStyle: '#ffffff',
       fillStyle: '#000000',
-      posX: 0.5,
-      posY: 0.85,
+      posX: 0,
+      posY: 0,
     },
   ],
 };
 
-let gCurrMeme = {
-  selectedImgId: 1,
-  selectedLineIdx: 0,
-  lines: [
-    {
-      lineWidth: 2,
-      text: 'TOP LINE',
-      fontSize: '40',
-      fontFamily: 'Impact',
-      textAlign: 'center',
-      strokeStyle: '#ffffff',
-      fillStyle: '#000000',
-      posX: 0.5,
-      posY: 0.2,
-    },
-    {
-      lineWidth: 2,
-      text: 'BOTTOM LINE',
-      fontSize: '40',
-      fontFamily: 'Impact',
-      textAlign: 'center',
-      strokeStyle: '#ffffff',
-      fillStyle: '#000000',
-      posX: 0.5,
-      posY: 0.85,
-    },
-  ],
-};
+let gCurrMeme = null;
 
-function createNewMeme(imgId = -1) {
+function createNewMeme(imgId) {
   // console.log('gCurrImage:', gCurrImage);
   gCurrMeme = gDefaultMeme;
   gCurrMeme.selectedImgId = imgId;
@@ -87,10 +63,6 @@ function getLines() {
   return gCurrMeme.lines;
 }
 
-// function getLineCounter() {
-//   return gCurrMeme.lines.length;
-// }
-
 function getLineIdx() {
   return gCurrMeme.selectedLineIdx;
 }
@@ -104,8 +76,8 @@ function addNewLine() {
     fontSize: '40',
     fontFamily: 'Impact',
     textAlign: 'center',
-    posX: 0.5,
-    posY: 0.5,
+    posX: 0,
+    posY: 0,
   });
 
   gCurrMeme.selectedLineIdx = gCurrMeme.lines.length - 1;
@@ -118,6 +90,12 @@ function deleteLine() {
   }
 
   gCurrMeme.lines.splice(gCurrMeme.selectedLineIdx--, 1);
+}
+
+function moveLine(dx, dy) {
+  const line = getLine();
+  line.posX += dx;
+  line.posY += dy;
 }
 
 function editLineText(text) {

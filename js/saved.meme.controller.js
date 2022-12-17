@@ -6,7 +6,6 @@ function renderMemeGallery() {
   const elContainer = document.querySelector('.memes-container');
 
   const memes = getSavedMemes();
-  console.log('memes:', memes);
 
   // image.src = canvasImageData;
   const strHtmls = memes.map((meme, idx) => {

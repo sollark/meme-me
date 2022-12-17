@@ -5,7 +5,6 @@ const gImages = [];
 function renderImageGallery() {
   const elContainer = document.querySelector('.images-container');
   const images = gImages;
-  console.log('images:', images);
 
   const strHtmls = images.map((img) => {
     return `<div class="image-wrapper"><img src='${img.src}' alt='Image' onclick="onStartEdit('${img.id}')"></img></div>\n`;
