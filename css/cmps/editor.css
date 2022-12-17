@@ -37,6 +37,7 @@ canvas {
 
         position: fixed;
         bottom: 0;
+
         width: 100vw;
 
         padding-bottom: 0.5em;
@@ -68,6 +69,7 @@ canvas {
     .input-line-mobile {
         position: absolute;
         top: 50%;
+        left: 0;
         z-index: -10;
     }
 
