@@ -8,7 +8,6 @@ function onDown(ev) {
   // Get the ev pos from mouse or touch
   const pos = getEvPos(ev);
 
-  console.log('ondown', pos);
   const clickLine = isTextLineClicked(pos);
 
   if (clickLine === -1) return;
@@ -16,7 +15,6 @@ function onDown(ev) {
   setLineDrag(true);
   focusOnLine(clickLine);
 
-  //Save the pos we start from
   gStartPos = pos;
   setCursor('grabbing');
 
@@ -29,7 +27,6 @@ function onMove(ev) {
   if (!isDrag) return;
 
   const pos = getEvPos(ev);
-  // console.log('onmove', pos);
 
   // Calc the delta , the diff we moved
   const dx = pos.x - gStartPos.x;
@@ -76,22 +73,31 @@ function getEvPos(ev) {
   return pos;
 }
 
-//TODO on resize miss text
 function isTextLineClicked(pos) {
   let clickedLineIdx = -1;
   const lines = getLines();
 
   lines.forEach((line, idx) => {
     const { text, posX, posY, textAlign, fontSize } = line;
-    // need for align
-    const width = gElCanvas.width;
 
-    //TODO handle text align
-    const startPosX = posX;
+    let startPosX = 0;
+    let endPosX = 0;
+    let startPosY = posY;
+    let endPosY = line.posY - fontSize;
 
-    const startPosY = posY;
-    const endPosY = startPosY - fontSize;
-    const endPosX = startPosX + gCtx.measureText(text).width;
+    if (textAlign === 'start') {
+      startPosX = posX - 5;
+      endPosX = posX + gCtx.measureText(text).width + 5;
+    } else if (textAlign === 'center') {
+      const halfLine = gCtx.measureText(text).width / 2;
+
+      startPosX = posX - halfLine - 5;
+      endPosX = posX + halfLine + 5;
+    } else if (textAlign === 'end') {
+      startPosX = posX - gCtx.measureText(text).width - 5;
+      endPosX = posX + 5;
+    }
+
     if (
       pos.x > startPosX &&
       pos.x < endPosX &&

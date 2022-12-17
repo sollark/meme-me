@@ -71,13 +71,12 @@ function drawText(width, line, idx, isSelected) {
 
   // set x for new line
   if (posX === 0) {
-    const textPosX =
+    line.posX =
       textAlign === 'center'
         ? width / 2
         : textAlign === 'start'
         ? 20
         : width - 20;
-    line.posX = textPosX;
   }
 
   // set y for new line
@@ -94,15 +93,36 @@ function drawText(width, line, idx, isSelected) {
   if (isSelected) {
     gCtx.save();
 
-    //TODO handle text align
-    gCtx.beginPath();
-    gCtx.strokeStyle = 'red';
-    gCtx.strokeRect(
-      line.posX,
-      line.posY - fontSize,
-      gCtx.measureText(text).width,
-      fontSize
-    );
+    // handle text align
+    if (textAlign === 'start') {
+      gCtx.beginPath();
+      gCtx.strokeStyle = 'red';
+      gCtx.strokeRect(
+        line.posX - 5,
+        line.posY - fontSize + 5,
+        gCtx.measureText(text).width + 5,
+        fontSize
+      );
+    } else if (textAlign === 'center') {
+      const halfLine = gCtx.measureText(text).width / 2;
+      gCtx.beginPath();
+      gCtx.strokeStyle = 'red';
+      gCtx.strokeRect(
+        line.posX - halfLine,
+        line.posY - fontSize,
+        gCtx.measureText(text).width + 5,
+        fontSize
+      );
+    } else if (textAlign === 'end') {
+      gCtx.beginPath();
+      gCtx.strokeStyle = 'red';
+      gCtx.strokeRect(
+        line.posX - gCtx.measureText(text).width - 5,
+        line.posY - fontSize,
+        gCtx.measureText(text).width + 5,
+        fontSize
+      );
+    }
 
     gCtx.restore();
   }
@@ -126,7 +146,10 @@ function onTextChangeMobile() {
 function onEditTextMobile() {
   const input = document.querySelector('.input-line-mobile');
   input.focus();
-  console.log('click');
+
+  focusOnLNextine();
+
+  drawImage();
 }
 
 function fitImage(image) {
@@ -152,11 +175,49 @@ function fitImage(image) {
   return { width, height };
 }
 
+// share download save
 function onSave() {
   var canvasImageData = gElCanvas.toDataURL('image/jpeg', 1.0);
 
   saveMeme(canvasImageData);
   renderMemeGallery();
+}
+
+function onDownloadImage() {
+  var image = gElCanvas
+    .toDataURL('image/jpeg')
+    .replace('image/jpeg', 'image/octet-stream');
+
+  window.location.href = image;
+}
+
+function onShare() {
+  const imgDataUrl = gElCanvas.toDataURL('image/jpeg');
+
+  // A function to be called if request succeeds
+  function onSuccess(uploadedImgUrl) {
+    // Encode the instance of certain characters in the url
+    const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl);
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}`
+    );
+  }
+  // Send the image to the server
+  doUploadImg(imgDataUrl, onSuccess);
+}
+
+function doUploadImg(imgDataUrl, onSuccess) {
+  // Pack the image for delivery
+  const formData = new FormData();
+  formData.append('img', imgDataUrl);
+  console.log('formData:', formData);
+  // Send a post req with the image to the server
+  fetch('//ca-upload.com/here/upload.php', { method: 'POST', body: formData })
+    .then((res) => res.text())
+    .then((url) => {
+      console.log('url:', url);
+      onSuccess(url);
+    });
 }
 
 // line tools

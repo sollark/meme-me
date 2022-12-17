@@ -21,13 +21,11 @@ function onTextOption(el) {
 function onFontSizeUp() {
   const line = getLine();
   line.fontSize = '' + (+line.fontSize + 3);
-  // console.log('gMeme:', gMeme);
   drawImage();
 }
 
 function onFontSizeDown() {
   const line = getLine();
-
   line.fontSize = '' + (+line.fontSize - 3);
 
   drawImage();
@@ -36,6 +34,13 @@ function onFontSizeDown() {
 function onTextAlign(el) {
   const line = getLine();
   line.textAlign = el.getAttribute('data-value');
+
+  line.posX =
+    line.textAlign === 'center'
+      ? gElCanvas.width / 2
+      : line.textAlign === 'start'
+      ? 20
+      : gElCanvas.width - 20;
 
   drawImage();
 }

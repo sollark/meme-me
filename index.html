@@ -11,7 +11,7 @@
   <body class="flex flex-column" data-view="gallery" onload="onInit()">
     <!-- main header  -->
     <header class="main-layout main-header flex space-between">
-      <div class="logo">
+      <div class="logo full">
         <img src="assets/icons/logo.png" alt="" srcset="" />
       </div>
 
@@ -28,9 +28,13 @@
       <!-- image gallery  -->
       <div class="gallery">
         <header class="gallery__header flex">
-          <input type="search" class="input" placeholder="Search" />
+          <!-- <input type="search" class="input" placeholder="Search" /> -->
           <!-- <div class="keyword-container">keywords</div> -->
-          <input type="file" id="fileUpload" onchange="onFileUpload(this)" />
+          <input
+            class="no-border"
+            type="file"
+            id="fileUpload"
+            onchange="onFileUpload(this)" />
         </header>
 
         <section class="gallery__container">
@@ -52,6 +56,7 @@
             <input
               class="input input-line"
               type="text"
+              placeholder="Create the meme!"
               oninput="onTextChange()" />
           </div>
 
@@ -132,6 +137,8 @@
               <option value="Impact">Impact</option>
               <option value="Anton">Anton</option>
               <option value="Oswald-Regular">Oswald Regular</option>
+              <option value="Roboto-Bold">Roboto Bold</option>
+              <option value="RobotoCondensed-Bold">RobotoCondensed Bold</option>
             </select>
             <input
               class="input color stroke-color"
@@ -144,12 +151,12 @@
               onchange="onTextOption(this)"
               type="color" />
           </div>
-          <div class="tools sticker-tools">stickers</div>
+          <!-- <div class="tools sticker-tools">stickers</div> -->
           <div class="tools image-tools">
-            <button>
+            <button onclick="onShare()">
               <img class="icon" src="assets/icons/share.png" alt="share" />
             </button>
-            <button>
+            <button onclick="onDownloadImage()">
               <img
                 class="icon"
                 src="assets/icons/download.png"
@@ -200,7 +207,7 @@
               alt="" />
           </span>
         </section>
-        <section class="hidden-input">
+        <section class="hidden-input hide-on-big-screen">
           <input
             class="input input-line-mobile"
             type="text"

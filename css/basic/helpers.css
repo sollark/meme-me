@@ -68,21 +68,23 @@
     justify-content: center;
 }
 
+.no-border {
+    border: none;
+}
+
 /* ========= IMAGE GALLERY =========  */
 
 .flex-gallery {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1em;
+    gap: 2em;
 
     padding: 1em;
 }
 
 .image-wrapper {
     margin: 0 auto;
-    width: 200px;
+    flex-basis: 350px;
 
-    background-color: burlywood;
     cursor: pointer;
 }

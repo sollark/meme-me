@@ -7,7 +7,6 @@ function renderMemeGallery() {
 
   const memes = getSavedMemes();
 
-  // image.src = canvasImageData;
   const strHtmls = memes.map((meme, idx) => {
     return `<div class="image-wrapper"><img src='${meme.img}' alt="Image" onclick="onResumeEdit(${idx})"></img></div>\n`;
   });
@@ -17,6 +16,9 @@ function renderMemeGallery() {
 
 //TODO Modal
 function onResumeEdit(savedMemeIdx) {
+  // TODO user image got 7
+  // console.log('savedMemeIdx:', savedMemeIdx);
+
   if (savedMemeIdx === -1) {
     console.log("users image. Can't edit user image");
     return;

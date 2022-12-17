@@ -75,7 +75,7 @@ function addNewLine() {
     fillStyle: '#000000',
     fontSize: '40',
     fontFamily: 'Impact',
-    textAlign: 'left',
+    textAlign: 'start',
     posX: 0,
     posY: 0,
   });

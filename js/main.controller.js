@@ -4,13 +4,9 @@ function onInit() {
   console.log('inInit');
 
   if (gCurrImage) {
-    //   const elEditor = document.querySelector('.editor');
-    //   elEditor.classList.add('active');
-
     onMeme();
   }
-  // loadCustomFonts();
-  //load fonts
+
   loadImages();
   renderMemeGallery();
   initEditor();
@@ -46,5 +42,4 @@ function setCursor(type) {
   gElCanvas = document.querySelector('.canvas');
 
   gElCanvas.style.cursor = type;
-  // gElCanvas.style.cursor = 'grab';
 }
