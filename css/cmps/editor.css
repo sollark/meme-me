@@ -61,6 +61,11 @@ canvas {
     span:nth-child(3) .mobile-icon {
         width: 3.2rem;
     }
+
+    .input-line-mobile {
+        position: absolute;
+        top: 100%;
+    }
 }
 
 /* small  */
