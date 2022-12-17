@@ -19,6 +19,8 @@ function onInit() {
 function onGallery() {
   const elBody = document.querySelector('body');
   elBody.dataset.view = 'gallery';
+
+  renderImageGallery();
 }
 
 function onMeme() {

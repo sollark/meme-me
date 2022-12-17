@@ -29,10 +29,10 @@ canvas {
 /* MEDIA QUERIES*/
 
 /* mobile only  */
-@media (max-width: 600px) {}
+@media (max-width: 500px) {}
 
 /* small  */
-@media (min-width: 600px) {
+@media (min-width: 500px) {
     .editor {
         flex-direction: column;
     }

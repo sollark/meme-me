@@ -18,6 +18,16 @@ async function initEditor() {
   resizeCanvas();
 }
 
+function resizeCanvas() {
+  let heightRatio = 1;
+  gElCanvas.height = gElCanvas.width * heightRatio;
+
+  gCtx.fillStyle = '#008000';
+  gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height);
+
+  delayOn(drawImage);
+}
+
 function startEdit() {
   const image = gImages.find((img) => img.id === getCurrImageId());
 
@@ -31,20 +41,8 @@ function startEdit() {
   drawImage();
 }
 
-function resizeCanvas() {
-  let heightRatio = 1;
-  gElCanvas.height = gElCanvas.width * heightRatio;
-
-  gCtx.fillStyle = '#008000';
-  gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height);
-
-  delayOn(drawImage);
-}
-
 const drawImage = () => {
   if (!gCurrImage) return;
-
-  // createNewMeme(gCurrImage.id);
 
   const lines = getLines();
 
@@ -77,7 +75,7 @@ function drawText(line, idx) {
 // TODO text align
 function onTextChange() {
   const elLine = document.querySelector('.input-line');
-  setText(elLine.value);
+  editLineText(elLine.value);
 
   drawImage();
 }
@@ -109,4 +107,5 @@ function onSave() {
   var canvasImageData = gElCanvas.toDataURL('image/jpeg', 1.0);
 
   saveMeme(canvasImageData);
+  renderMemeGallery();
 }

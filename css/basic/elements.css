@@ -16,7 +16,7 @@
 button,
 input,
 select {
-    height: var(--btn-height-desktop);
+    height: var(--btn-height);
     padding: .2em .2em;
 
     border-color: hsl(212, 94%, 18%);
@@ -28,14 +28,14 @@ select {
 }
 
 .color {
-    height: var(--btn-height-desktop);
-    width: var(--btn-height-desktop);
+    height: var(--btn-height);
+    width: var(--btn-height);
 }
 
 select,
 input:not(.color) {
-    padding: .5em;
-    font-size: 1.3rem;
+    padding: .1em;
+    font-size: .8rem;
 }
 
 /* button:hover{} */
@@ -49,5 +49,37 @@ input:not(.color) {
     padding: 0.5em;
 
     vertical-align: text-bottom;
-    line-height: var(--btn-height-desktop);
+    line-height: var(--btn-height);
 }
+
+/* ========== ICONS ========= */
+.icon {
+    width: 2em;
+    height: 2em
+}
+
+/* MEDIA QUERIES*/
+
+/* mobile only  */
+@media (max-width: 500px) {}
+
+/* small  */
+@media (min-width: 500px) {}
+
+/* medium  */
+@media (min-width: 1046px) {
+
+    select,
+    input:not(.color) {
+        padding: .5em;
+        font-size: 1.3rem;
+    }
+
+    .icon {
+        width: 2.5em;
+        height: 2.5em
+    }
+}
+
+/* large  */
+@media (min-width: 1200px) {}

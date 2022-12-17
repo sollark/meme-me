@@ -1,5 +1,34 @@
 :root {
-    --main-padding: 2em;
+    --main-padding: 1.2em;
+    --btn-height: 2.2rem;
+    --font-size: .8rem
+}
 
-    --btn-height-desktop: 3rem;
+/* MEDIA QUERIES*/
+
+/* mobile only  */
+@media (max-width:600px) {}
+
+/* small  */
+@media (min-width: 600px) {
+    :root {
+        --main-padding: 1.5em;
+        --btn-height: 2.5rem;
+        --font-size: 1rem
+    }
+}
+
+/* medium  */
+@media (min-width: 1046px) {
+    :root {
+        --btn-height: 3rem;
+    }
+}
+
+/* large  */
+@media (min-width: 1200px) {
+    :root {
+        --font-size: 1.2rem;
+        --btn-height: 3.5rem;
+    }
 }

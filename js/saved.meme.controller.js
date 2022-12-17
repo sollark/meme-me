@@ -15,3 +15,19 @@ function renderMemeGallery() {
 
   elContainer.innerHTML = strHtmls.join('');
 }
+
+//TODO Modal
+function onResumeEdit(savedMemeIdx) {
+  if (savedMemeIdx === -1) {
+    console.log("users image. Can't edit user image");
+    return;
+  }
+
+  const elBody = document.querySelector('body');
+  elBody.dataset.view = 'editor';
+
+  const { meme } = getSavesMeme(savedMemeIdx);
+  setSavedMeme(meme);
+
+  startEdit();
+}

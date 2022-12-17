@@ -15,7 +15,7 @@
         <img src="assets/icons/logo.png" alt="" srcset="" />
       </div>
 
-      <nav class="full">
+      <nav class="full flex align-center">
         <button onclick="onGallery()">Gallery</button>
         <button onclick="onMeme()">Memes</button>
         <button>About</button>
@@ -29,7 +29,8 @@
       <div class="gallery">
         <header class="gallery__header flex">
           <input type="search" class="input" placeholder="Search" />
-          <div class="keyword-container">keywords</div>
+          <!-- <div class="keyword-container">keywords</div> -->
+          <input type="file" id="fileUpload" onchange="onFileUpload(this)" />
         </header>
 
         <section class="gallery__container">
@@ -174,10 +175,11 @@
       <a
         href="https://thenounproject.com/browse/icons/term/save/"
         target="_blank"
-        title="Save Icons"
-        >Noun Project</a
-      >
+        title="Save Icons">
+        Noun Project
+      </a>
     </footer>
+
     <script src="js/fonts.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/sevices/storage.service.js"></script>

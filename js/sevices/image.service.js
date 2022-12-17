@@ -28,6 +28,7 @@ const gCurrImageIdx = 1;
 function getImages() {
   return gImg;
 }
+
 function setImage(idx) {
   gCurrImageIdx = idx;
 }

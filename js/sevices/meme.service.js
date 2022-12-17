@@ -58,7 +58,7 @@ let gCurrMeme = {
   ],
 };
 
-function createNewMeme(imgId) {
+function createNewMeme(imgId = -1) {
   // console.log('gCurrImage:', gCurrImage);
   gCurrMeme = gDefaultMeme;
   gCurrMeme.selectedImgId = imgId;
@@ -74,6 +74,7 @@ function setSavedMeme(meme) {
   gCurrMeme = meme;
 }
 
+//TODO handel -1 case of user image
 function getCurrImageId() {
   return gCurrMeme.selectedImgId;
 }
@@ -86,9 +87,9 @@ function getLines() {
   return gCurrMeme.lines;
 }
 
-function getLineCounter() {
-  return gCurrMeme.lines.length;
-}
+// function getLineCounter() {
+//   return gCurrMeme.lines.length;
+// }
 
 function getLineIdx() {
   return gCurrMeme.selectedLineIdx;
@@ -119,7 +120,7 @@ function deleteLine() {
   gCurrMeme.lines.splice(gCurrMeme.selectedLineIdx--, 1);
 }
 
-function setText(text) {
+function editLineText(text) {
   gCurrMeme.lines[gCurrMeme.selectedLineIdx].text = text;
 }
 
@@ -134,7 +135,9 @@ function focusOnLine(lineIdx) {
 }
 
 function focusOnLNextine() {
-  gCurrMeme.selectedLineIdx = ++gCurrMeme.selectedLineIdx % getLineCounter();
+  // gCurrMeme.selectedLineIdx = ++gCurrMeme.selectedLineIdx % getLineCounter();
+  gCurrMeme.selectedLineIdx =
+    ++gCurrMeme.selectedLineIdx % gCurrMeme.lines.length;
 }
 
 function updateTextOption(lineId, option) {
