@@ -4,6 +4,7 @@ let gCurrImage = null;
 
 let gElCanvas;
 let gCtx;
+let gNoFocus = false;
 
 async function initEditor() {
   gElCanvas = document.querySelector('.canvas');
@@ -90,12 +91,12 @@ function drawText(width, line, idx, isSelected) {
   gCtx.strokeText(text, line.posX, line.posY);
 
   // draw focus box on line if selected
-  if (isSelected) {
+  if (isSelected && !gNoFocus) {
     gCtx.save();
 
     // handle text align
     if (textAlign === 'start') {
-      gCtx.beginPath();
+      // gCtx.beginPath();
       gCtx.strokeStyle = 'red';
       gCtx.strokeRect(
         line.posX - 5,
@@ -177,18 +178,28 @@ function fitImage(image) {
 
 // share download save
 function onSave() {
+  gNoFocus = true;
+  drawImage();
+
   var canvasImageData = gElCanvas.toDataURL('image/jpeg', 1.0);
 
   saveMeme(canvasImageData);
   renderMemeGallery();
+
+  gNoFocus = false;
 }
 
 function onDownloadImage() {
+  gNoFocus = true;
+  drawImage();
+
   var image = gElCanvas
     .toDataURL('image/jpeg')
     .replace('image/jpeg', 'image/octet-stream');
 
   window.location.href = image;
+
+  gNoFocus = false;
 }
 
 function onShare() {
