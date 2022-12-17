@@ -65,8 +65,13 @@ canvas {
     .input-line-mobile {
         position: absolute;
         top: 50%;
-        left: 110%
+        z-index: -10;
     }
+
+    .input-line-mobile:focus {
+        outline: none;
+    }
+
 }
 
 /* small  */
