@@ -1,6 +1,7 @@
-body[data-view="gallery"] .editor,
-body[data-view="memes"] .editor {
-    display: none;
+.controller-container,
+.image-container {
+    padding: 1em;
+
 }
 
 .editor:not(.active) {
@@ -17,17 +18,7 @@ canvas {
     margin: 0 auto;
 }
 
-.controller-container,
-.image-container {
-    padding: 1em;
-
-}
-
-
-
-
 /* MEDIA QUERIES*/
-
 /* mobile only  */
 @media (max-width: 499px) {
     .mobile-controller-menu {
@@ -39,19 +30,16 @@ canvas {
         bottom: 0;
 
         width: 100vw;
-
-        padding-bottom: 0.5em;
-
         height: 4rem;
+        padding-bottom: 0.5em;
         background-color: aqua;
     }
 
     .mobile-controller-menu span {
-        padding: 1em;
-        border-radius: 50%;
         display: inline-block;
+        padding: 1em;
         background-color: aqua;
-
+        border-radius: 50%;
 
         box-shadow: 0px -2px 9px -4px gray;
 
@@ -81,8 +69,6 @@ canvas {
 
 /* small  */
 @media (min-width: 500px) {
-
-
     .controller-container {
         width: 100%;
 
@@ -96,7 +82,6 @@ canvas {
         flex-basis: content;
     }
 }
-
 
 /* medium  */
 @media (min-width: 1046px) {

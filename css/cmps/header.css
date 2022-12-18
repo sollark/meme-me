@@ -12,11 +12,9 @@
 }
 
 /* MEDIA QUERIES*/
-
 /* mobile only  */
 @media (max-width:770px) {
     .main-header nav {
-
         margin-left: auto;
     }
 

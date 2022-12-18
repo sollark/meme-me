@@ -44,7 +44,6 @@ input:not(.color) {
 }
 
 /* button:hover{} */
-
 .tools {
     display: flex;
     align-items: flex-end;

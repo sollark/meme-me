@@ -1,8 +1,0 @@
-body[data-view="editor"] .gallery,
-body[data-view="memes"] .gallery {
-    display: none;
-}
-
-.gallery__header {
-    padding: 1em;
-}

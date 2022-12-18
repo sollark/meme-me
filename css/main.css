@@ -11,8 +11,5 @@
 /* layout  */
 @import 'cmps/header.css';
 @import 'cmps/body.css';
-@import 'cmps/main.css';
-@import 'cmps/gallery.css';
-@import 'cmps/memes.css';
 @import 'cmps/editor.css';
 @import 'cmps/footer.css';

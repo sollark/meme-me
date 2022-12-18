@@ -12,9 +12,9 @@
 }
 
 .flex-column {
+    display: flex;
     flex-direction: column;
 }
-
 
 /*=========== LIST ===========*/
 .clean-list {
@@ -22,7 +22,6 @@
     padding: 0;
     list-style-type: none;
 }
-
 
 /* ========= HIDDEN ======== */
 .hidden {
@@ -73,7 +72,6 @@
 }
 
 /* ========= IMAGE GALLERY =========  */
-
 .flex-gallery {
     display: flex;
     flex-wrap: wrap;

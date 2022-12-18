@@ -7,7 +7,6 @@
     margin: 0;
 }
 
-
 /* ======== LINKS, LIST ====== */
 a,
 a:visited,
@@ -17,14 +16,12 @@ a:active {
     text-decoration: none;
 }
 
-
 /* ========== POINTER ======== */
 label,
 button,
 .btn {
     cursor: pointer;
 }
-
 
 /* ========== IMAGES ========= */
 img {
@@ -34,8 +31,6 @@ img {
     object-fit: contain;
     object-position: center;
 }
-
-
 
 /* ========== BUTTONS INPUT========= */
 button,
@@ -56,10 +51,4 @@ select {
 /* =============   HTML BODY  ============ */
 html {
     scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Ubuntu, sans-serif';
-    font-size: var(--font-size);
-    color: black;
 }

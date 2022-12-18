@@ -2,6 +2,51 @@ body[data-view="gallery"] {
     height: auto;
 }
 
+body[data-view="editor"] .memes,
+body[data-view="gallery"] .memes {
+    display: none;
+}
+
+body[data-view="editor"] .gallery,
+body[data-view="memes"] .gallery {
+    display: none;
+}
+
+body[data-view="gallery"] .editor,
+body[data-view="memes"] .editor {
+    display: none;
+}
+
 body {
     position: relative;
+    font-family: 'Ubuntu, sans-serif';
+    font-size: var(--font-size);
+    color: black;
 }
+
+.gallery__header {
+    padding: 1em;
+}
+
+.main__header {
+    background-color: azure;
+}
+
+main {
+    flex-grow: 1;
+    background-color: aquamarine;
+}
+
+/* MEDIA QUERIES*/
+
+/* mobile only  */
+@media (max-width: 600px) {}
+
+/* small  */
+@media (min-width: 600px) {}
+
+/* medium  */
+@media (min-width: 960px) {}
+
+/* large  */
+@media (min-width: 1200px) {}
