@@ -164,8 +164,8 @@ function onEditTextMobile() {
 
 function fitImage(image) {
   const elContainer = document.querySelector('.canvas-container');
-  const maxWidth = elContainer.width;
-  const maxHeight = elContainer.height;
+  const maxWidth = 500;
+  const maxHeight = window.innerHeight * 0.75;
 
   let width = image.width;
   let height = image.height;
