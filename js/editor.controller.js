@@ -30,14 +30,16 @@ function resizeCanvas() {
 }
 
 function startEdit() {
-  const image = gImages.find((img) => img.id === getCurrImageId());
+  const currImgId = getCurrImageId();
 
-  gCurrImage = image;
+  gCurrImage = gImages.find((img) => {
+    return img.id === currImgId;
+  });
 
-  if (gCurrImage) {
-    const elEditor = document.querySelector('.editor');
-    elEditor.classList.add('active');
-  }
+  // if (gCurrImage) {
+  //   const elEditor = document.querySelector('.editor');
+  //   elEditor.classList.add('active');
+  // }
 
   drawImage();
 }
@@ -68,7 +70,8 @@ const drawImage = () => {
 function drawText(width, line, idx, isSelected) {
   applyTextOptions(idx);
 
-  const { text, posX, posY, textAlign, fontSize } = line;
+  const { posX, posY, textAlign, fontSize } = line;
+  let text = line.text;
 
   // set x for new line
   if (posX === 0) {
@@ -80,48 +83,55 @@ function drawText(width, line, idx, isSelected) {
         : width - 20;
   }
 
-  // set y for new line
+  // set posY for new line
   if (posY === 0) {
     if (idx === 0) line.posY = gElCanvas.height * 0.2;
     else if (idx === 1) line.posY = gElCanvas.height * 0.85;
     else line.posY = gElCanvas.height * 0.5;
   }
 
-  gCtx.fillText(text, line.posX, line.posY);
-  gCtx.strokeText(text, line.posX, line.posY);
+  // dummy text if line line eampty
+  if (text === '') {
+    if (idx === 0) text = 'TOP LINE';
+    else if (idx === 1) text = 'BOTTOM LINE';
+    else text = 'NEW LINE';
+  }
+
+  gCtx.fillText(line.text, line.posX, line.posY);
+  gCtx.strokeText(line.text, line.posX, line.posY);
 
   // draw focus box on line if selected
   if (isSelected && !gNoFocus) {
     gCtx.save();
 
     // handle text align
+    const borderColor = 'white';
     if (textAlign === 'start') {
-      // gCtx.beginPath();
-      gCtx.strokeStyle = 'red';
+      gCtx.strokeStyle = borderColor;
       gCtx.strokeRect(
         line.posX - 5,
-        line.posY - fontSize + 5,
-        gCtx.measureText(text).width + 5,
-        fontSize
+        line.posY - fontSize - 5,
+        gCtx.measureText(text).width + 10,
+        +fontSize + 20
       );
     } else if (textAlign === 'center') {
       const halfLine = gCtx.measureText(text).width / 2;
       gCtx.beginPath();
-      gCtx.strokeStyle = 'red';
+      gCtx.strokeStyle = borderColor;
       gCtx.strokeRect(
         line.posX - halfLine,
         line.posY - fontSize,
         gCtx.measureText(text).width + 5,
-        fontSize
+        +fontSize + 20
       );
     } else if (textAlign === 'end') {
       gCtx.beginPath();
-      gCtx.strokeStyle = 'red';
+      gCtx.strokeStyle = borderColor;
       gCtx.strokeRect(
         line.posX - gCtx.measureText(text).width - 5,
         line.posY - fontSize,
         gCtx.measureText(text).width + 5,
-        fontSize
+        +fontSize + 20
       );
     }
 
@@ -129,7 +139,6 @@ function drawText(width, line, idx, isSelected) {
   }
 }
 
-// TODO text align
 function onTextChange() {
   const elLine = document.querySelector('.input-line');
   editLineText(elLine.value);
@@ -154,7 +163,7 @@ function onEditTextMobile() {
 }
 
 function fitImage(image) {
-  const elContainer = document.querySelector('.image-container');
+  const elContainer = document.querySelector('.canvas-container');
   const maxWidth = elContainer.width;
   const maxHeight = elContainer.height;
 
@@ -176,7 +185,6 @@ function fitImage(image) {
   return { width, height };
 }
 
-// share download save
 function onSave() {
   gNoFocus = true;
   drawImage();
@@ -231,7 +239,6 @@ function doUploadImg(imgDataUrl, onSuccess) {
     });
 }
 
-// line tools
 function onSwitchLine() {
   const elInputLine = document.querySelector('.input-line');
   elInputLine.focus();

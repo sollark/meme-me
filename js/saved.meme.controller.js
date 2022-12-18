@@ -1,9 +1,7 @@
 'use strict';
 
-'memes-container';
-
 function renderMemeGallery() {
-  const elContainer = document.querySelector('.memes-container');
+  const elContainer = document.querySelector('.memes');
 
   const memes = getSavedMemes();
 
@@ -24,8 +22,7 @@ function onResumeEdit(savedMemeIdx) {
     return;
   }
 
-  const elBody = document.querySelector('body');
-  elBody.dataset.view = 'editor';
+  setView('editor');
 
   const { meme } = getSavesMeme(savedMemeIdx);
   setSavedMeme(meme);

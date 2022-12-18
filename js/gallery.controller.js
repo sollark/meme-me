@@ -7,7 +7,7 @@ function renderImageGallery() {
   const images = gImages;
 
   const strHtmls = images.map((img) => {
-    return `<div class="image-wrapper"><img src='${img.src}' alt='Image' onclick="onStartEdit('${img.id}')"></img></div>\n`;
+    return `<div class="image-wrapper ${img.span}"><img src='${img.src}' alt='Image' onclick="onChooseImg('${img.id}')"></img></div>\n`;
   });
 
   elContainer.innerHTML = strHtmls.join('');
@@ -22,6 +22,7 @@ function loadImages() {
     img.onerror = stopLoad;
     img.src = image.url;
     img.id = image.id;
+    img.span = image.span;
   });
 
   renderImageGallery();
@@ -35,11 +36,12 @@ function loadUserImage(file) {
 
     img.onload = () => {
       addImage(img);
-      renderImageGallery();
+      createNewMeme('-1');
+      startEdit();
     };
     img.onerror = stopLoad;
     img.src = ev.target.result;
-    img.id = -1;
+    img.id = '-1';
   });
   FR.readAsDataURL(file);
 }
@@ -52,22 +54,15 @@ function stopLoad() {
   console.log('error loading images');
 }
 
-// TODO  DUPLICATED CODE
-function onStartEdit(imageId) {
-  const elBody = document.querySelector('body');
-  elBody.dataset.view = 'editor';
+function onChooseImg(imageId) {
+  setView('editor');
 
   createNewMeme(imageId);
-
   startEdit();
 }
 
 function onFileUpload(el) {
   if (!el.files || !el.files[0]) return;
 
-  // const elBody = document.querySelector('body');
-  // elBody.dataset.view = 'editor';
-
-  createNewMeme();
   loadUserImage(el.files[0]);
 }

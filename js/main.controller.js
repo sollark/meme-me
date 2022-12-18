@@ -22,8 +22,7 @@ function onGallery() {
 }
 
 function onMeme() {
-  const elBody = document.querySelector('body');
-  elBody.dataset.view = 'memes';
+  setView('memes');
 }
 
 //Handle the listeners
@@ -42,4 +41,19 @@ function setCursor(type) {
   gElCanvas = document.querySelector('.canvas');
 
   gElCanvas.style.cursor = type;
+}
+
+function setView(view) {
+  const elBody = document.querySelector('body');
+  switch (view) {
+    case 'editor':
+      elBody.dataset.view = 'editor';
+      break;
+    case 'gallery':
+      elBody.dataset.view = 'gallery';
+      break;
+    case 'memes':
+      elBody.dataset.view = 'memes';
+      break;
+  }
 }

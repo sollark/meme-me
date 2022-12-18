@@ -3,14 +3,6 @@
 const STORAGE_KEY = 'memes';
 let gSavedMemes = [];
 
-/* 
-{
-img: "sdfsdf",
-meme: {},
-}
-
- */
-
 // clearLS();
 _loadMemes();
 
@@ -29,8 +21,6 @@ function saveMeme(canvasImageData) {
     //TODO modal
     return;
   }
-
-  console.log('getMeme to save ():', getMeme());
 
   const meme = JSON.parse(JSON.stringify(getMeme()));
   gSavedMemes.push({ img: canvasImageData, meme });

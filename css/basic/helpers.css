@@ -1,88 +1,102 @@
 /* ========= FLEX ======== */
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .flex.align-center {
-    align-items: center;
+  align-items: center;
 }
 
 .flex.space-between {
-    justify-content: space-between
+  justify-content: space-between;
 }
 
 .flex-column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 /*=========== LIST ===========*/
 .clean-list {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 /* ========= HIDDEN ======== */
 .hidden {
-    display: none;
+  display: none;
 }
+
+/* ========== OTHER ===========  */
+/* center icons in buttons  */
+.place-items-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-border {
+  border: none;
+}
+
+/* ========= IMAGE GALLERY =========  */
+.grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-flow: dense;
+  /* gap: 10px; */
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  cursor: pointer;
+}
+
+.flex-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  /* gap: 2em; */
+
+  padding: 1em;
+}
+
+.image-wrapper.rowSpan {
+  grid-row: span 2;
+}
+
 
 /* mobile only  */
 @media (max-width: 499px) {
-    .hide-on-small-screen {
-        display: none;
-    }
+  .hide-on-small-screen {
+    display: none;
+  }
 
-    .hide-on-big-screen {
-        display: initial;
-    }
+  .hide-on-big-screen {
+    display: initial;
+  }
 }
 
 /* small  */
 @media (min-width: 500px) {
-    .hide-on-small-screen {
-        display: initial;
-    }
+  .hide-on-small-screen {
+    display: initial;
+  }
 
-    .hide-on-big-screen {
-        display: none;
-    }
+  .hide-on-big-screen {
+    display: none;
+  }
+
+  .image-wrapper.colSpan {
+    grid-column: span 2;
+  }
 }
 
 /* medium  */
 @media (min-width: 960px) {}
 
-
 /* large  */
 @media (min-width: 1200px) {}
-
-
-
-/* ========== OTHER ===========  */
-/* center icons in buttons  */
-.place-items-center {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.no-border {
-    border: none;
-}
-
-/* ========= IMAGE GALLERY =========  */
-.flex-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2em;
-
-    padding: 1em;
-}
-
-.image-wrapper {
-    margin: 0 auto;
-    flex-basis: 350px;
-
-    cursor: pointer;
-}

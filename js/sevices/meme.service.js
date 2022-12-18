@@ -38,6 +38,7 @@ function createNewMeme(imgId) {
   // console.log('gCurrImage:', gCurrImage);
   gCurrMeme = gDefaultMeme;
   gCurrMeme.selectedImgId = imgId;
+  console.log('gCurrMeme.selectedImgId:', gCurrMeme.selectedImgId);
 }
 
 //TODO check if can be replaces with getLine

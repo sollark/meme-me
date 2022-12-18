@@ -73,6 +73,11 @@ function initControls() {
   elFontFamily.value = line.fontFamily;
 
   //  gCtx.textAlign = line.textAlign;
+  const btnsTextAlign = document.querySelectorAll('[data-option="textAlign"]');
+  btnsTextAlign.forEach((button) => {
+    if (button.dataset.value === line.textAlign) button.classList.add('active');
+    else button.classList.remove('active');
+  });
 }
 
 function onFontSelect(el) {

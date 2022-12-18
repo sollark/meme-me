@@ -1,12 +1,12 @@
 .controller-container,
-.image-container {
+.canvas-container {
     padding: 1em;
 
 }
 
-.editor:not(.active) {
+/* .editor:not(.active) {
     pointer-events: none;
-}
+} */
 
 .editor {
     height: 100%;
@@ -16,6 +16,10 @@
 
 canvas {
     margin: 0 auto;
+}
+
+.input-line {
+    width: 100%;
 }
 
 /* MEDIA QUERIES*/
@@ -55,8 +59,8 @@ canvas {
     }
 
     .input-line-mobile {
-        position: absolute;
-        top: 50%;
+        position: fixed;
+        top: 50vh;
         left: 0;
         z-index: -10;
     }
@@ -70,12 +74,12 @@ canvas {
 /* small  */
 @media (min-width: 500px) {
     .controller-container {
-        width: 100%;
+        /* width: 100%; */
+        width: 500px;
 
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-
     }
 
     .tools {
@@ -88,6 +92,7 @@ canvas {
     .editor {
         flex-direction: row;
         justify-content: center;
+        align-items: start;
     }
 
     .controller-container {
