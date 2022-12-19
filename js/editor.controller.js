@@ -90,7 +90,7 @@ function drawText(width, line, idx, isSelected) {
     else line.posY = gElCanvas.height * 0.5;
   }
 
-  // dummy text if line line eampty
+  // dummy text if line line empty
   if (text === '') {
     if (idx === 0) text = 'TOP LINE';
     else if (idx === 1) text = 'BOTTOM LINE';
@@ -114,6 +114,14 @@ function drawText(width, line, idx, isSelected) {
         gCtx.measureText(text).width + 10,
         +fontSize + 20
       );
+
+      gCtx.strokeStyle = 'black';
+      gCtx.strokeRect(
+        line.posX - 7,
+        line.posY - fontSize - 7,
+        gCtx.measureText(text).width + 14,
+        +fontSize + 25
+      );
     } else if (textAlign === 'center') {
       const halfLine = gCtx.measureText(text).width / 2;
       gCtx.beginPath();
@@ -124,6 +132,14 @@ function drawText(width, line, idx, isSelected) {
         gCtx.measureText(text).width + 5,
         +fontSize + 20
       );
+
+      gCtx.strokeStyle = 'black';
+      gCtx.strokeRect(
+        line.posX - halfLine - 5,
+        line.posY - fontSize - 3,
+        gCtx.measureText(text).width + 12,
+        +fontSize + 25
+      );
     } else if (textAlign === 'end') {
       gCtx.beginPath();
       gCtx.strokeStyle = borderColor;
@@ -132,6 +148,14 @@ function drawText(width, line, idx, isSelected) {
         line.posY - fontSize,
         gCtx.measureText(text).width + 5,
         +fontSize + 20
+      );
+
+      gCtx.strokeStyle = 'black';
+      gCtx.strokeRect(
+        line.posX - gCtx.measureText(text).width - 7,
+        line.posY - fontSize - 3,
+        gCtx.measureText(text).width + 11,
+        +fontSize + 25
       );
     }
 
@@ -163,7 +187,6 @@ function onEditTextMobile() {
 }
 
 function fitImage(image) {
-  const elContainer = document.querySelector('.canvas-container');
   const maxWidth = 500;
   const maxHeight = window.innerHeight * 0.75;
 
@@ -185,7 +208,7 @@ function fitImage(image) {
   return { width, height };
 }
 
-function onSave() {
+function onSave(btn) {
   gNoFocus = true;
   drawImage();
 
@@ -195,6 +218,13 @@ function onSave() {
   renderMemeGallery();
 
   gNoFocus = false;
+
+  // show tooltip
+  const tooltip = btn.querySelector('.top');
+  tooltip.style.display = 'block';
+  delayForTwoSec(() => {
+    tooltip.style.display = 'none';
+  });
 }
 
 function onDownloadImage() {

@@ -8,40 +8,51 @@
     <link rel="stylesheet" href="css/main.css" />
     <title>Meme Me</title>
   </head>
-  <body class="flex flex-column" data-view="gallery" onload="onInit()">
+  <body
+    onkeyup="onKeyUp(event)"
+    class="main-layout flex flex-column"
+    data-view="gallery"
+    onload="onInit()">
     <!-- main header  -->
-    <header class="main-layout main-header flex space-between">
+    <header class="full main-header flex space-between align-center">
       <div class="logo full">
         <img src="assets/icons/logo.png" alt="" srcset="" />
       </div>
 
-      <nav class="full flex align-center">
-        <button onclick="onGallery()">Gallery</button>
-        <button onclick="onMeme()">Memes</button>
-        <button>About</button>
+      <nav class="flex align-center">
+        <button class="hide-on-small-screen" onclick="onGallery()">
+          Gallery
+        </button>
+        <button class="hide-on-small-screen" onclick="onMeme()">Memes</button>
+        <button class="hide-on-small-screen">About</button>
+        <button
+          class="hide-on-big-screen"
+          onclick="onToggleMobileMenu(this.children)">
+          <span class="open">menu</span><span class="close hidden">close</span>
+        </button>
       </nav>
     </header>
 
-    <!-- TODO reduce divs  -->
+    <nav class="mobile-menu hide-on-big-screen open full">
+      <button class="" onclick="onGallery()">Gallery</button>
+      <button class="" onclick="onMeme()">Memes</button>
+      <button class="">About</button>
+    </nav>
     <!-- main  -->
-    <main class="main-layout">
+    <main class="full">
       <!-- image gallery  -->
       <div class="gallery">
         <header class="gallery__header flex">
           <!-- <input type="search" class="input" placeholder="Search" /> -->
           <!-- <div class="keyword-container">keywords</div> -->
           <input
-            class="no-border"
+            class="no-border input-upload-image"
             type="file"
             id="fileUpload"
             onchange="onFileUpload(this)" />
         </header>
 
         <section class="images-container grid-gallery"></section>
-
-        <!-- <section class="gallery__container">
-          <div class="images-container grid-gallery"></div>
-        </section> -->
       </div>
 
       <!-- editor  -->
@@ -62,9 +73,8 @@
               oninput="onTextChange()" />
           </div>
 
+          <!-- control panel -->
           <div class="tools line-tools">
-            <!-- <button class="button" onclick="on()">move up</button>
-            <button class="button" onclick="on()">move down</button> -->
             <button class="button" onclick="onSwitchLine()">
               <img
                 class="icon"
@@ -164,12 +174,14 @@
                 src="assets/icons/download.png"
                 alt="download" />
             </button>
-            <button>
-              <img
-                class="icon"
-                src="assets/icons/save.png"
-                alt="save"
-                onclick="onSave()" />
+
+            <button onclick="onSave(this)" class="tooltip">
+              <img class="icon" src="assets/icons/save.png" alt="save" />
+              <div class="top">
+                <h3>Meme saved</h3>
+                <p>Meme saved in tab Memes.</p>
+                <i></i>
+              </div>
             </button>
           </div>
         </section>
@@ -222,7 +234,7 @@
       <!-- <div class="memes memes-container flex-gallery"></div> -->
     </main>
 
-    <footer class="main-layout">
+    <footer class="full">
       Save by Basello from
       <a
         href="https://thenounproject.com/browse/icons/term/save/"

@@ -78,7 +78,12 @@ function isTextLineClicked(pos) {
   const lines = getLines();
 
   lines.forEach((line, idx) => {
-    const { text, posX, posY, textAlign, fontSize } = line;
+    const { posX, posY, textAlign, fontSize } = line;
+
+    let text = (' ' + line.text).slice(1);
+    if (text === '') {
+      text = 'BOTTOM LINE';
+    }
 
     let startPosX = 0;
     let endPosX = 0;
@@ -88,6 +93,7 @@ function isTextLineClicked(pos) {
     if (textAlign === 'start') {
       startPosX = posX - 5;
       endPosX = posX + gCtx.measureText(text).width + 5;
+      console.log('startPosX:', startPosX, 'endPosX', endPosX, 'pos', pos);
     } else if (textAlign === 'center') {
       const halfLine = gCtx.measureText(text).width / 2;
 

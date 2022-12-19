@@ -5,6 +5,7 @@
 @import 'basic/layout.css';
 
 /* setup  */
+@import 'setup/tooltip.css';
 @import 'setup/vars.css';
 @import 'setup/font-face.css';
 

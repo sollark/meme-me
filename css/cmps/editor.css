@@ -34,7 +34,7 @@ canvas {
         bottom: 0;
 
         width: 100vw;
-        height: 4rem;
+        height: 5.5rem;
         padding-bottom: 0.5em;
         background-color: aqua;
     }
@@ -43,9 +43,6 @@ canvas {
         display: inline-block;
         padding: 1em;
         background-color: aqua;
-        border-radius: 50%;
-
-        box-shadow: 0px -2px 9px -4px gray;
 
         cursor: pointer;
     }

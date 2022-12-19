@@ -1,7 +1,8 @@
 :root {
-    --main-padding: 1.2em;
+    --main-padding: 1.2rem;
+    --header-height: 4.2rem;
     --btn-height: 2.2rem;
-    --font-size: .8rem;
+    --font-size: .9rem;
 }
 
 /* MEDIA QUERIES*/
@@ -13,8 +14,9 @@
 @media (min-width: 600px) {
     :root {
         --main-padding: 1.5em;
-        --btn-height: 2.5rem;
-        --font-size: 1rem
+        --btn-height: 2.6rem;
+        --font-size: 1rem;
+        --header-height: 4.5rem;
     }
 }
 
@@ -22,6 +24,7 @@
 @media (min-width: 1046px) {
     :root {
         --btn-height: 3rem;
+        --header-height: 4.9rem;
     }
 }
 
@@ -30,5 +33,6 @@
     :root {
         --font-size: 1.2rem;
         --btn-height: 3.5rem;
+        --header-height: 5.2rem;
     }
 }

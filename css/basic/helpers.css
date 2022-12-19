@@ -11,6 +11,10 @@
   justify-content: space-between;
 }
 
+.flex.justify-center {
+  justify-content: center;
+}
+
 .flex-column {
   display: flex;
   flex-direction: column;
@@ -59,7 +63,6 @@
 .flex-gallery {
   display: flex;
   flex-wrap: wrap;
-  /* gap: 2em; */
 
   padding: 1em;
 }

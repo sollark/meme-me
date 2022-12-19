@@ -25,14 +25,21 @@ body {
 }
 
 .gallery__header {
-    padding: 1em;
+    padding: 1em 0;
 }
 
 .main__header {
     background-color: azure;
 }
 
+header,
+main,
+footer {
+    padding: 0 var(--main-padding);
+}
+
 main {
+    padding-top: var(--header-height);
     flex-grow: 1;
     background-color: aquamarine;
 }

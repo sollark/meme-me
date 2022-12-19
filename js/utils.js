@@ -13,3 +13,11 @@ function delayOn(myFunc) {
 
   timeoutHandle = window.setTimeout(myFunc, delay);
 }
+
+function delayOnFunc(delay) {
+  return (x) => setTimeout(x, delay);
+}
+
+const delayForFourSec = delayOnFunc(5000);
+const delayForThreeSec = delayOnFunc(3000);
+const delayForTwoSec = delayOnFunc(2000);

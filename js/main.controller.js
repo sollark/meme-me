@@ -14,15 +14,24 @@ function onInit() {
   addListeners();
 }
 
+window.onresize = () => {
+  document.body.classList.remove('menu-open');
+};
+
 function onGallery() {
-  const elBody = document.querySelector('body');
-  elBody.dataset.view = 'gallery';
+  setView('gallery');
+  document.body.classList.remove('menu-open');
 
   renderImageGallery();
 }
 
 function onMeme() {
   setView('memes');
+  document.body.classList.remove('menu-open');
+}
+
+function onToggleMobileMenu() {
+  document.body.classList.toggle('menu-open');
 }
 
 //Handle the listeners
@@ -37,9 +46,15 @@ function addListeners() {
   gElCanvas.addEventListener('touchend', onUp);
 }
 
+function onKeyUp(ev) {
+  if (ev.key === 'Enter') {
+    ev.target.blur();
+    console.log(ev.target);
+  }
+}
+
 function setCursor(type) {
   gElCanvas = document.querySelector('.canvas');
-
   gElCanvas.style.cursor = type;
 }
 

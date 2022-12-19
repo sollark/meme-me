@@ -16,7 +16,9 @@ function getSavesMeme(idx) {
 
 function saveMeme(canvasImageData) {
   if (gSavedMemes.length === 10) {
-    console.log('You cant save more than 10 memes');
+    console.log(
+      'Become supporter and get option to save unlimited number of memes!'
+    );
 
     //TODO modal
     return;
@@ -31,6 +33,4 @@ function saveMeme(canvasImageData) {
 function _loadMemes() {
   const loadedMemes = loadFromLS(STORAGE_KEY);
   if (loadedMemes) gSavedMemes = loadedMemes;
-
-  console.log('loaded gSavesMeme:', gSavedMemes);
 }

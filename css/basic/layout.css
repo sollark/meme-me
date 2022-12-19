@@ -12,7 +12,7 @@ body {
 }
 
 .main-layout {
-    padding: 0 var(--main-padding);
+    /* padding: 0 var(--main-padding); */
 }
 
 

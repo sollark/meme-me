@@ -2,7 +2,8 @@
 
 let gKeyWordsSearchCountMap = { funny: 12, cat: 16, baby: 2 };
 
-let gImg = [
+let gImgs = [
+  { id: 0, span: '', url: 'assets/images/0.png', keywords: ['funny', 'cat'] },
   { id: 1, span: '', url: 'assets/images/1.jpg', keywords: ['funny', 'cat'] },
   { id: 2, span: '', url: 'assets/images/2.jpg', keywords: ['funny', 'cat'] },
   { id: 3, span: '', url: 'assets/images/3.jpg', keywords: ['funny', 'cat'] },
@@ -144,7 +145,11 @@ let gImg = [
 const gCurrImageIdx = 1;
 
 function getImages() {
-  return gImg;
+  return gImgs;
+}
+
+function getImage(idx) {
+  return gImgs[idx];
 }
 
 function setImage(idx) {
@@ -152,5 +157,5 @@ function setImage(idx) {
 }
 
 function getImageUrl() {
-  return gImg[gCurrImageIdx].url;
+  return gImgs[gCurrImageIdx].url;
 }
