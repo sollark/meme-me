@@ -97,9 +97,3 @@
     grid-column: span 2;
   }
 }
-
-/* medium  */
-@media (min-width: 960px) {}
-
-/* large  */
-@media (min-width: 1200px) {}

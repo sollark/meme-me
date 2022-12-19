@@ -102,6 +102,3 @@ select {
         height: 2.5em
     }
 }
-
-/* large  */
-@media (min-width: 1200px) {}

@@ -36,11 +36,6 @@ function startEdit() {
     return img.id === currImgId;
   });
 
-  // if (gCurrImage) {
-  //   const elEditor = document.querySelector('.editor');
-  //   elEditor.classList.add('active');
-  // }
-
   drawImage();
 }
 
@@ -53,7 +48,7 @@ const drawImage = () => {
 
   gCtx.drawImage(gCurrImage, 0, 0, gElCanvas.width, gElCanvas.height);
 
-  // draw  lines
+  // draw  text lines
   const meme = getMeme();
   const lines = meme.lines;
   const selectedLine = meme.selectedLineIdx;
@@ -63,7 +58,7 @@ const drawImage = () => {
     drawText(width, line, idx, isSelected);
   });
 
-  //set options controls according to text settings
+  //set text controls according to text settings
   initControls();
 };
 
@@ -73,7 +68,7 @@ function drawText(width, line, idx, isSelected) {
   const { posX, posY, textAlign, fontSize } = line;
   let text = line.text;
 
-  // set x for new line
+  // set posX for new line
   if (posX === 0) {
     line.posX =
       textAlign === 'center'
@@ -90,7 +85,7 @@ function drawText(width, line, idx, isSelected) {
     else line.posY = gElCanvas.height * 0.5;
   }
 
-  // dummy text if line line empty
+  // dummy text if text line is empty
   if (text === '') {
     if (idx === 0) text = 'TOP LINE';
     else if (idx === 1) text = 'BOTTOM LINE';
@@ -100,7 +95,7 @@ function drawText(width, line, idx, isSelected) {
   gCtx.fillText(line.text, line.posX, line.posY);
   gCtx.strokeText(line.text, line.posX, line.posY);
 
-  // draw focus box on line if selected
+  // draw focus box on text line if selected
   if (isSelected && !gNoFocus) {
     gCtx.save();
 

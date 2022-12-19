@@ -3,10 +3,6 @@
 function onInit() {
   console.log('inInit');
 
-  if (gCurrImage) {
-    onMeme();
-  }
-
   loadImages();
   renderMemeGallery();
   initEditor();
@@ -34,7 +30,6 @@ function onToggleMobileMenu() {
   document.body.classList.toggle('menu-open');
 }
 
-//Handle the listeners
 function addListeners() {
   setCursor('grab');
 

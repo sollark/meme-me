@@ -45,10 +45,10 @@ function onTextAlign(el) {
   drawImage();
 }
 
-// TODO text align
 function initControls() {
   const line = getLine();
 
+  // desktop input
   const elInputLine = document.querySelector('.input-line');
   elInputLine.value = line.text;
 
@@ -62,7 +62,19 @@ function initControls() {
     elInputLine.value = '';
   }
 
-  //  gCtx.lineWidth = line.lineWidth;
+  // mobile input
+  const elInputLineMobile = document.querySelector('.input-line-mobile');
+  elInputLineMobile.value = line.text;
+  // remove placeholder
+  if (
+    elInputLineMobile.value === 'TOP LINE' ||
+    elInputLineMobile.value === 'BOTTOM LINE' ||
+    elInputLineMobile.value === 'NEW LINE'
+  ) {
+    line.text = '';
+    elInputLineMobile.value = '';
+  }
+
   const elStrokeColor = document.querySelector('.stroke-color');
   elStrokeColor.value = line.strokeStyle;
 
@@ -72,7 +84,6 @@ function initControls() {
   const elFontFamily = document.querySelector('.select-font');
   elFontFamily.value = line.fontFamily;
 
-  //  gCtx.textAlign = line.textAlign;
   const btnsTextAlign = document.querySelectorAll('[data-option="textAlign"]');
   btnsTextAlign.forEach((button) => {
     if (button.dataset.value === line.textAlign) button.classList.add('active');

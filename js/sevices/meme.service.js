@@ -35,13 +35,10 @@ const gDefaultMeme = {
 let gCurrMeme = null;
 
 function createNewMeme(imgId) {
-  console.log('new meme gCurrImage:', gCurrImage);
-
   gCurrMeme = JSON.parse(JSON.stringify(gDefaultMeme));
   gCurrMeme.selectedImgId = imgId;
 }
 
-//TODO check if can be replaces with getLine
 function getMeme() {
   return gCurrMeme;
 }
