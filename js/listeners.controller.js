@@ -93,7 +93,6 @@ function isTextLineClicked(pos) {
     if (textAlign === 'start') {
       startPosX = posX - 5;
       endPosX = posX + gCtx.measureText(text).width + 5;
-      console.log('startPosX:', startPosX, 'endPosX', endPosX, 'pos', pos);
     } else if (textAlign === 'center') {
       const halfLine = gCtx.measureText(text).width / 2;
 
